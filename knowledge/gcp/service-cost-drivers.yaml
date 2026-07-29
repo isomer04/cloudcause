@@ -1,0 +1,175 @@
+# Service specific GCP cost drivers used by the investigation playbooks.
+rules:
+  - id: gcp-api-key-abuse-usage
+    provider: gcp
+    rule_type: cost_driver
+    title: API-key driven service usage from unexpected callers
+    service: api-keys
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Public API services bill per request or per character/token for any caller
+      holding a valid key. A jump in requests from new source locations or a new
+      caller identity, with no matching deployment, indicates key exposure rather
+      than legitimate growth.
+    cost_drivers: [request_count, characters_or_tokens_processed, egress]
+    investigation_checks:
+      - compare_request_count
+      - group_audit_logs_by_caller_ip
+      - check_new_source_locations
+      - check_key_restrictions
+      - correlate_with_deployment_event
+    matches:
+      services: [Cloud Translation API, Cloud Vision API, Vertex AI, Cloud Natural Language API]
+      categories: [api_key_abuse]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/docs/authentication/api-keys
+      updated_at: 2026-05-12
+    confidence: supported
+    data:
+      recommended_control: restrict key by API and referrer, then rotate
+
+  - id: gcp-compute-idle-instance
+    provider: gcp
+    rule_type: cost_driver
+    title: Running Compute Engine instances bill regardless of utilization
+    service: compute-engine
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      A running instance bills vCPU and memory per second, plus attached disks and
+      any reserved external IP. Only stopping the instance stops compute charges.
+    cost_drivers: [vcpu_hours, memory_hours, attached_disks, external_ip]
+    investigation_checks: [check_cpu_utilization, check_network_activity, check_instance_insert_event, check_label_owner]
+    matches:
+      services: [Compute Engine]
+      categories: [idle_compute]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/compute/vm-instance-pricing
+      updated_at: 2026-03-18
+    confidence: supported
+
+  - id: gcp-persistent-disk-unattached
+    provider: gcp
+    rule_type: cost_driver
+    title: Unattached persistent disks and snapshots keep billing
+    service: persistent-disk
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Persistent disks bill provisioned capacity whether or not they are attached,
+      and snapshots bill incremental stored bytes.
+    cost_drivers: [provisioned_gb_month, snapshot_storage]
+    investigation_checks: [check_disk_attachment, check_snapshot_age, check_label_owner]
+    matches:
+      services: [Compute Engine Storage, Persistent Disk]
+      categories: [unattached_storage]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/compute/disks-image-pricing
+      updated_at: 2025-12-16
+    confidence: supported
+
+  - id: gcp-vertex-ai-inference-usage
+    provider: gcp
+    rule_type: cost_driver
+    title: Vertex AI inference bills per token or per request
+    service: vertex-ai
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Vertex AI prediction bills input and output tokens for generative models and
+      node hours for dedicated endpoints. An endpoint left deployed bills node hours
+      with no traffic.
+    cost_drivers: [input_tokens, output_tokens, endpoint_node_hours, model_choice]
+    investigation_checks: [compare_request_count, compare_token_volume, check_endpoint_deployment, check_retry_pattern]
+    matches:
+      services: [Vertex AI]
+      categories: [ai_inference]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/vertex-ai/pricing
+      updated_at: 2026-06-24
+    confidence: supported
+
+  - id: gcp-gke-autoscaling
+    provider: gcp
+    rule_type: cost_driver
+    title: GKE node scaling drives compute cost
+    service: gke
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      GKE Standard bills the node VMs plus cluster management fee. Unschedulable pods
+      caused by oversized resource requests hold node pools at maximum size.
+    cost_drivers: [node_hours, cluster_management_fee, attached_disks]
+    investigation_checks: [compare_node_count, check_scaling_events, check_pod_resource_requests]
+    matches:
+      services: [Kubernetes Engine]
+      categories: [kubernetes_autoscaling]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/kubernetes-engine/pricing
+      updated_at: 2026-02-27
+    confidence: supported
+
+  - id: gcp-cloud-sql-idle-instance
+    provider: gcp
+    rule_type: cost_driver
+    title: Cloud SQL instances bill while runnable
+    service: cloud-sql
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      A runnable Cloud SQL instance bills vCPU, memory, storage and backups with no
+      connections. Stopped instances still bill storage.
+    cost_drivers: [instance_hours, storage_gb, backup_storage, high_availability]
+    investigation_checks: [check_connection_count, check_cpu_usage, check_label_owner]
+    matches:
+      services: [Cloud SQL]
+      categories: [idle_database]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/sql/pricing
+      updated_at: 2025-11-25
+    confidence: supported
+
+  - id: gcp-label-coverage
+    provider: gcp
+    rule_type: cost_driver
+    title: Unlabelled resources cannot be attributed to an owner
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Labels must exist before usage is exported; they are not backfilled. Unlabelled
+      spend is reported as unattributed.
+    cost_drivers: [missing_labels]
+    investigation_checks: [list_unlabelled_resources, check_label_policy, report_as_unattributed]
+    matches:
+      categories: [untagged_resources]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/billing/docs/how-to/bq-examples
+      updated_at: 2025-07-30
+    confidence: supported
+
+  - id: gcp-price-change-vs-usage
+    provider: gcp
+    rule_type: cost_driver
+    title: Separating a rate change from a usage change
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Flat usage amount with rising cost means the effective SKU rate changed: price
+      change, tier change, network service tier, or lost commitment credits.
+    cost_drivers: [sku_rate, tier_change, credit_loss]
+    investigation_checks: [compare_unit_cost, compare_usage_amount, check_credits, check_catalog_price_snapshot]
+    matches:
+      categories: [pricing_change]
+    source:
+      type: official_api
+      url: https://cloud.google.com/billing/docs/reference/rest/v1/services.skus
+      updated_at: 2026-04-21
+    confidence: supported

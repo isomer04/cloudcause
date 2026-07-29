@@ -1,0 +1,75 @@
+# GCP billing export interpretation rules.
+rules:
+  - id: gcp-billing-export-grouping
+    provider: gcp
+    rule_type: cost_driver
+    title: Generic GCP billing export grouping and attribution
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Detailed usage export rows carry cost plus a repeated credits array. Net cost
+      is cost plus credits, so credits must be added, not subtracted. SKU id is the
+      stable grouping key because SKU descriptions are edited over time.
+    cost_drivers: [usage_amount, sku_rate, credits]
+    investigation_checks: [group_by_sku_id, add_credit_amounts, check_resource_name_coverage]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables/standard-usage
+      updated_at: 2026-05-28
+    confidence: supported
+
+  - id: gcp-billing-export-schema
+    provider: gcp
+    rule_type: export_schema
+    title: BigQuery detailed usage export schema
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      CloudCause reads billing_account_id, service.description, sku.description,
+      usage_start_time, project.id, location.location, resource.global_name,
+      usage.amount, cost and credits. Unknown versions are quarantined.
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/billing/docs/how-to/export-data-bigquery
+      updated_at: 2026-05-28
+    confidence: supported
+    data:
+      supported_versions: ["1", "1.0"]
+      required_columns: [usage_start_time, cost, "service.description"]
+
+  - id: gcp-pricing-source
+    provider: gcp
+    rule_type: pricing_source
+    title: Authoritative GCP price source
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Prices come from the Cloud Billing Catalog API with a dated snapshot, never
+      from model memory or general web search.
+    source:
+      type: official_api
+      url: https://cloud.google.com/billing/docs/reference/rest/v1/services.skus
+      updated_at: 2026-04-21
+    confidence: supported
+    data:
+      api: cloudbilling.services.skus.list
+
+  - id: gcp-cloud-billing-api-current
+    provider: gcp
+    rule_type: api_deprecation
+    title: Cloud Billing and Recommender API status
+    service: cloud-billing
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Cloud Billing v1 and Recommender v1 are current. Release notes are monitored
+      weekly for schema and commitment model changes.
+    matches:
+      services: [cloud-billing, recommender]
+    source:
+      type: release_notes
+      url: https://cloud.google.com/billing/docs/release-notes
+      updated_at: 2026-07-08
+    confidence: supported
+    data:
+      status: current

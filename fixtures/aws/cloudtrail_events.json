@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "provider": "aws",
+      "event_id": "aws-evt-0001",
+      "event_name": "DeleteVpcEndpoint",
+      "event_time": "2026-07-15T02:13:20+00:00",
+      "source": "cloudtrail",
+      "actor": "arn:aws:iam::111122223333:user/deploy-bot",
+      "actor_type": "IAMUser",
+      "region_id": "us-east-1",
+      "source_ip": "198.51.100.24",
+      "resource_ids": [
+        "vpce-0abc123def4567890",
+        "nat-0ab12cd34ef56789a"
+      ],
+      "summary": "Deleted gateway endpoint com.amazonaws.us-east-1.s3 during a network refactor",
+      "attributes": {
+        "requestId": "b1f2c3d4-5566-7788-99aa-bbccddeeff00"
+      }
+    },
+    {
+      "provider": "aws",
+      "event_id": "aws-evt-0002",
+      "event_name": "ReplaceRoute",
+      "event_time": "2026-07-15T02:14:00+00:00",
+      "source": "cloudtrail",
+      "actor": "arn:aws:iam::111122223333:user/deploy-bot",
+      "actor_type": "IAMUser",
+      "region_id": "us-east-1",
+      "source_ip": "198.51.100.24",
+      "resource_ids": [
+        "rtb-0f1e2d3c4b5a69870",
+        "nat-0ab12cd34ef56789a"
+      ],
+      "summary": "Replaced the 0.0.0.0/0 route in rtb-0f1e2d3c4b5a69870 to target nat-0ab12cd34ef56789a, so S3 traffic now leaves through the NAT Gateway",
+      "attributes": {
+        "destinationCidrBlock": "0.0.0.0/0"
+      }
+    },
+    {
+      "provider": "aws",
+      "event_id": "aws-evt-0003",
+      "event_name": "RunInstances",
+      "event_time": "2026-07-14T09:03:00+00:00",
+      "source": "cloudtrail",
+      "actor": "arn:aws:iam::111122223333:user/intern-sandbox",
+      "actor_type": "IAMUser",
+      "region_id": "us-east-1",
+      "source_ip": "203.0.113.19",
+      "resource_ids": [
+        "i-0dev1234567890abc"
+      ],
+      "summary": "Launched one m6i.xlarge instance for a one-off experiment",
+      "attributes": {
+        "instanceType": "m6i.xlarge"
+      }
+    }
+  ]
+}

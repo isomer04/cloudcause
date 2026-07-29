@@ -1,0 +1,93 @@
+# AWS Cost Explorer / Data Exports interpretation rules.
+rules:
+  - id: aws-cost-explorer-usage-grouping
+    provider: aws
+    rule_type: cost_driver
+    title: Generic AWS usage grouping and attribution
+    valid_from: 2024-01-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    summary: >
+      Amortized cost is the correct measure for attribution because unblended cost
+      moves with up-front commitment purchases. Resource level attribution requires
+      resource ids in the export; untagged shared charges must be reported as
+      unattributed rather than assigned to a guessed owner.
+    cost_drivers:
+      - usage_quantity
+      - unit_price
+      - commitment_coverage
+    investigation_checks:
+      - compare_amortized_cost
+      - separate_usage_from_rate_change
+      - check_resource_id_coverage
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html
+      updated_at: 2026-02-18
+    confidence: supported
+
+  - id: aws-data-exports-cur2-schema
+    provider: aws
+    rule_type: export_schema
+    title: AWS Data Exports (CUR 2.0) schema
+    valid_from: 2024-06-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    summary: >
+      CloudCause parses Data Exports / CUR 2.0 column names such as
+      line_item_usage_start_date, line_item_unblended_cost and
+      line_item_net_amortized_cost. Unknown schema versions are quarantined.
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html
+      updated_at: 2026-01-22
+    confidence: supported
+    data:
+      supported_versions: ["1", "1.0", "2.0"]
+      required_columns:
+        - line_item_usage_start_date
+        - line_item_usage_account_id
+        - line_item_unblended_cost
+
+  - id: aws-cost-explorer-api-status
+    provider: aws
+    rule_type: api_deprecation
+    title: Cost Explorer API support status
+    service: cost-explorer
+    valid_from: 2024-01-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    summary: >
+      GetCostAndUsage and GetCostAndUsageWithResources are current. Resource level
+      granularity is limited to a rolling recent window, so older investigations
+      must fall back to the Data Exports table.
+    matches:
+      services:
+        - cost-explorer
+        - GetCostAndUsage
+    source:
+      type: official_api
+      url: https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Operations_AWS_Cost_Explorer_Service.html
+      updated_at: 2026-03-10
+    confidence: supported
+    data:
+      status: current
+      resource_granularity_days: 14
+
+  - id: aws-pricing-source
+    provider: aws
+    rule_type: pricing_source
+    title: Authoritative AWS price source
+    valid_from: 2024-01-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    summary: >
+      Prices must come from the AWS Price List Query API, never from model memory
+      or general web search. Snapshots are cached with a retrieval date.
+    source:
+      type: official_api
+      url: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html
+      updated_at: 2025-09-30
+    confidence: supported
+    data:
+      api: pricing.GetProducts

@@ -1,0 +1,76 @@
+id: azure-idle-database
+title: "Azure: idle SQL database billing with no connections"
+provider: azure
+category: idle_database
+question: Why did Azure database spending increase this week?
+account_id: 8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b
+region: eastus
+periods:
+  baseline: {start: 2026-07-06, end: 2026-07-12}
+  current: {start: 2026-07-13, end: 2026-07-19}
+notes: A reporting database is restored for a migration test and then forgotten.
+baseline_services:
+  - service: Azure App Service
+    sku: P1v3 App Service Plan Hours
+    resource_id: /subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/serverFarms/plan-prod
+    resource_name: plan-prod
+    unit: 1 Hour
+    tags: {env: prod, owner: platform}
+    daily_cost: 14.0
+    daily_quantity: 24
+  - service: Storage
+    sku: Hot LRS Data Stored
+    resource_id: /subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Storage/storageAccounts/ccdemoprod
+    resource_name: ccdemoprod
+    unit: 1 GB/Month
+    tags: {env: prod, owner: platform}
+    daily_cost: 6.0
+    daily_quantity: 240
+spikes:
+  - service: SQL Database
+    sku: P2 DTUs
+    resource_id: /subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/legacy-reporting
+    resource_name: legacy-reporting
+    unit: 1 Hour
+    tags: {env: test, owner: data-platform}
+    daily_cost: 0.0
+    daily_quantity: 0
+    current_daily_cost: 11.2
+    current_daily_quantity: 24
+    starts_on: 2026-07-13
+resources:
+  - resource_id: /subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/legacy-reporting
+    resource_name: legacy-reporting
+    resource_type: Microsoft.Sql/servers/databases
+    region_id: eastus
+    state: Online
+    created_at: 2026-07-13T09:00:00+00:00
+    tags: {env: test, owner: data-platform}
+    attributes: {tier: Premium, dtu: "250"}
+metrics:
+  - resource_id: /subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/legacy-reporting
+    metric_name: connection_successful
+    unit: Count
+    statistic: Total
+    baseline_daily_value: 0.0
+    current_daily_value: 0.0
+  - resource_id: /subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/legacy-reporting
+    metric_name: cpu_percent
+    unit: Percent
+    statistic: Average
+    baseline_daily_value: 0.0
+    current_daily_value: 0.3
+audit_events:
+  - event_name: Microsoft.Sql/servers/databases/write
+    event_time: 2026-07-13T09:00:00+00:00
+    actor: migration@cloudcause.example
+    actor_type: User
+    region_id: eastus
+    resource_ids: [/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/legacy-reporting]
+    summary: Restored legacy-reporting from backup for a migration test
+recommendations:
+  - recommendation_id: azure-rec-0020
+    category: cost
+    resource_id: /subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/legacy-reporting
+    description: Database has had no connections since creation; delete it or move it to serverless
+    estimated_monthly_savings: 340.0

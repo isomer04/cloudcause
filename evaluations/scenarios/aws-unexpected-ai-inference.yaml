@@ -1,0 +1,66 @@
+id: aws-unexpected-ai-inference
+title: "AWS: unexpected model inference volume"
+provider: aws
+category: ai_inference
+question: Why did our AI spending increase this week?
+account_id: "111122223333"
+region: us-east-1
+periods:
+  baseline: {start: 2026-07-06, end: 2026-07-12}
+  current: {start: 2026-07-13, end: 2026-07-19}
+notes: A feature launch sends every page view through a large model with long prompts.
+baseline_services:
+  - service: Amazon Elastic Compute Cloud
+    sku: "BoxUsage:m6i.large"
+    resource_id: i-0a1b2c3d4e5f67890
+    resource_name: web-prod-1
+    unit: Hrs
+    tags: {env: prod, owner: platform}
+    daily_cost: 12.0
+    daily_quantity: 24
+  - service: Amazon Simple Storage Service
+    sku: "TimedStorage-ByteHrs"
+    resource_id: "arn:aws:s3:::cc-demo-prod-data-lake"
+    resource_name: cc-demo-prod-data-lake
+    unit: GB-Mo
+    tags: {env: prod, owner: data-platform}
+    daily_cost: 8.0
+    daily_quantity: 320
+spikes:
+  - service: Amazon Bedrock
+    sku: "InputTokenCount"
+    resource_id: "arn:aws:bedrock:us-east-1:111122223333:application-inference-profile/summariser"
+    resource_name: summariser
+    unit: 1M tokens
+    tags: {env: prod, owner: search-team}
+    daily_cost: 2.4
+    daily_quantity: 1.2
+    current_daily_cost: 44.0
+    current_daily_quantity: 22.0
+    starts_on: 2026-07-15
+resources:
+  - resource_id: "arn:aws:bedrock:us-east-1:111122223333:application-inference-profile/summariser"
+    resource_name: summariser
+    resource_type: "AWS::Bedrock::ApplicationInferenceProfile"
+    region_id: us-east-1
+    state: ACTIVE
+    created_at: 2026-03-02T10:00:00+00:00
+    tags: {env: prod, owner: search-team}
+    attributes: {model_id: anthropic.claude-3-5-sonnet}
+metrics:
+  - resource_id: "arn:aws:bedrock:us-east-1:111122223333:application-inference-profile/summariser"
+    metric_name: Invocations
+    unit: Count
+    statistic: Sum
+    baseline_daily_value: 1200
+    current_daily_value: 21000
+    starts_on: 2026-07-15
+  - resource_id: "arn:aws:bedrock:us-east-1:111122223333:application-inference-profile/summariser"
+    metric_name: InputTokenCount
+    unit: Count
+    statistic: Sum
+    baseline_daily_value: 1200000
+    current_daily_value: 22000000
+    starts_on: 2026-07-15
+audit_events: []
+recommendations: []

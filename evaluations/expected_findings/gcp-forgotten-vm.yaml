@@ -1,0 +1,13 @@
+scenario_id: gcp-forgotten-vm
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: gcp
+  category: idle_compute
+  resource_id: //compute.googleapis.com/projects/cloudcause-demo/zones/us-central1-a/instances/ml-scratch-1
+  cost_increase: 57.6
+  cost_tolerance: 0.02
+  min_confidence: 0.6
+  min_evidence: 4
+  required_evidence_sources: [cost, metric, audit, recommendation]
+  required_rule_ids: [gcp-compute-idle-instance]

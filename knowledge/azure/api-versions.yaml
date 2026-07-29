@@ -1,0 +1,43 @@
+# Azure API version and deprecation status.
+rules:
+  - id: azure-consumption-usage-details-deprecated
+    provider: azure
+    rule_type: api_deprecation
+    title: Consumption UsageDetails API is superseded
+    service: consumption-usage-details
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      The Consumption UsageDetails API is superseded by Cost Management exports and
+      the Query API. New CloudCause connectors must not use it.
+    matches:
+      services: [consumption, UsageDetails]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/cost-management-billing/automate/transition-consumption-apis-cost-management-apis
+      updated_at: 2026-02-06
+    confidence: deprecated
+    data:
+      status: superseded
+      replacement: cost-management-query-api
+
+  - id: azure-cost-management-query-api-current
+    provider: azure
+    rule_type: api_deprecation
+    title: Cost Management Query API support status
+    service: cost-management-query
+    valid_from: 2023-11-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Query API version 2023-11-01 is the pinned version for CloudCause. Newer
+      versions require a reviewed rule update before use.
+    matches:
+      services: [cost-management-query, Query]
+    source:
+      type: official_api
+      url: https://learn.microsoft.com/en-us/rest/api/cost-management/query/usage
+      updated_at: 2026-04-02
+    confidence: supported
+    data:
+      status: current
+      pinned_version: "2023-11-01"

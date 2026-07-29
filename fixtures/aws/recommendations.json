@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "provider": "aws",
+      "recommendation_id": "aws-rec-0001",
+      "source": "compute-optimizer",
+      "category": "idle_instance",
+      "resource_id": "i-0dev1234567890abc",
+      "description": "Instance has been idle for 5 days; consider stopping or terminating it",
+      "estimated_monthly_savings": 144.0,
+      "currency": "USD"
+    },
+    {
+      "provider": "aws",
+      "recommendation_id": "aws-rec-0002",
+      "source": "trusted-advisor",
+      "category": "networking",
+      "resource_id": "nat-0ab12cd34ef56789a",
+      "description": "Use a gateway VPC endpoint for S3 so this traffic avoids NAT Gateway data processing charges",
+      "estimated_monthly_savings": 780.0,
+      "currency": "USD"
+    }
+  ]
+}

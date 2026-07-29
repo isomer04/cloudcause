@@ -1,0 +1,14 @@
+scenario_id: gcp-compromised-api-key
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: gcp
+  category: api_key_abuse
+  resource_id: //serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com
+  cost_increase: 161.6
+  cost_tolerance: 0.02
+  min_confidence: 0.6
+  min_evidence: 4
+  required_evidence_sources: [cost, usage, metric, audit]
+  required_rule_ids: [gcp-api-key-abuse-usage]
+  expect_risk: high

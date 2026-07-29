@@ -1,0 +1,44 @@
+# The FOCUS release CloudCause is pinned to.
+rules:
+  - id: focus-1-4
+    provider: focus
+    rule_type: focus_version
+    title: FOCUS 1.4 supported columns
+    valid_from: 2025-06-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    schema_version: "1.4"
+    summary: >
+      CloudCause normalizes every provider into this FOCUS 1.4 column subset. A data
+      set that declares a different FOCUS version is quarantined instead of being
+      read with the 1.4 parser.
+    source:
+      type: specification
+      url: https://focus.finops.org/focus-specification/
+      updated_at: 2025-06-11
+    confidence: supported
+    data:
+      version: "1.4"
+      changelog: https://focus.finops.org/focus-specification/changelog/
+      columns:
+        - ProviderName
+        - BillingAccountId
+        - ChargePeriodStart
+        - ChargePeriodEnd
+        - BillingPeriodStart
+        - BillingPeriodEnd
+        - ServiceName
+        - ServiceCategory
+        - ChargeCategory
+        - ChargeDescription
+        - RegionId
+        - ResourceId
+        - ResourceName
+        - SkuId
+        - ConsumedQuantity
+        - ConsumedUnit
+        - BilledCost
+        - EffectiveCost
+        - BillingCurrency
+        - Tags
+        - CommitmentDiscountId

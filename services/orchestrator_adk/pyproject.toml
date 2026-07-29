@@ -1,0 +1,47 @@
+[project]
+name = "cloudcause-orchestrator-adk"
+version = "0.1.0"
+description = "Google ADK coordinator and GCP specialist"
+requires-python = ">=3.11"
+dependencies = [
+    "cloudcause-contracts",
+    "cloudcause-focus-normalizer",
+    "cloudcause-anomaly-detection",
+    "cloudcause-billing-knowledge",
+    "cloudcause-providers",
+    "cloudcause-evidence-validation",
+    "cloudcause-worker-core",
+    "cloudcause-mcp-servers",
+    # In-process worker mode (the offline default) imports the two sibling
+    # services directly. HTTP mode keeps them in separate processes.
+    "cloudcause-investigator-aws-strands",
+    "cloudcause-investigator-azure-maf",
+    "fastapi>=0.110",
+    "httpx>=0.27",
+    "uvicorn>=0.29",
+]
+
+[project.optional-dependencies]
+live = ["google-adk>=2.3.0"]
+
+[project.scripts]
+cloudcause-orchestrator = "cloudcause_orchestrator.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cloudcause_orchestrator"]
+
+[tool.uv.sources]
+cloudcause-contracts = { workspace = true }
+cloudcause-focus-normalizer = { workspace = true }
+cloudcause-anomaly-detection = { workspace = true }
+cloudcause-billing-knowledge = { workspace = true }
+cloudcause-providers = { workspace = true }
+cloudcause-evidence-validation = { workspace = true }
+cloudcause-worker-core = { workspace = true }
+cloudcause-mcp-servers = { workspace = true }
+cloudcause-investigator-aws-strands = { workspace = true }
+cloudcause-investigator-azure-maf = { workspace = true }

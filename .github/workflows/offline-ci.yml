@@ -1,0 +1,116 @@
+name: offline-ci
+
+# Everything here runs with fixture data and stub agents: no cloud accounts, no
+# model API keys, no network calls to providers.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CLOUDCAUSE_DATA_MODE: fixtures
+  CLOUDCAUSE_AGENT_MODE: stub
+  CLOUDCAUSE_ORCHESTRATOR_MODE: inprocess
+  CLOUDCAUSE_WORKER_MODE: inprocess
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Sync workspace
+        run: uv sync --frozen
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Fixtures are reproducible from the generator
+        run: |
+          uv run python fixtures/generate_fixtures.py
+          git diff --exit-code -- fixtures
+
+      - name: Deterministic, contract, worker API, gateway, MCP, security, and UI tests
+        run: uv run pytest tests -q
+
+      - name: Seeded scenario evaluation
+        run: uv run python evaluations/run_evaluation.py
+
+      - name: Compose file is valid
+        run: docker compose -f infra/docker/docker-compose.yml config --quiet
+
+  # The Next.js UI is a thin client over the same gateway contract, so its two
+  # gates are the ones that would catch a contract change going missing in
+  # TypeScript. tests/ui checks the mirror; these check that it compiles.
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # This job only compiles the frontend. It needs to read the tree and nothing
+    # else, and it must not leave a usable token behind in .git/config.
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Production build
+        run: npm run build
+
+  # The SQLite tests above already cover the schema. This job runs the same
+  # migrations and the same SQL against a real PostgreSQL, which is the only
+  # difference between local storage and the Compose deployment. It covers both
+  # the investigation history and the shared dataset store.
+  postgres-storage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: cloudcause
+          POSTGRES_USER: cloudcause
+          POSTGRES_PASSWORD: cloudcause-ci-only
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U cloudcause"
+          --health-interval 10s
+          --health-timeout 3s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Sync workspace with the psycopg driver
+        run: uv sync --frozen --extra postgres
+
+      - name: Investigation history and datasets against PostgreSQL
+        env:
+          CLOUDCAUSE_TEST_DATABASE_URL: postgresql://cloudcause:cloudcause-ci-only@127.0.0.1:5432/cloudcause
+        run: uv run pytest tests/persistence -q

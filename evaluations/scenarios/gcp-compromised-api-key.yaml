@@ -1,0 +1,98 @@
+id: gcp-compromised-api-key
+title: "GCP: exposed API key drives translation usage from new locations"
+provider: gcp
+category: api_key_abuse
+question: Why did Google Cloud API spending increase this week?
+account_id: 01ABCD-2345EF-6789GH
+region: us-central1
+periods:
+  baseline: {start: 2026-07-06, end: 2026-07-12}
+  current: {start: 2026-07-13, end: 2026-07-19}
+notes: >
+  An unrestricted API key leaks; request volume arrives from networks the project
+  has never seen, with no matching deployment.
+baseline_services:
+  - service: Compute Engine
+    sku: N2 Instance Core running in Americas
+    resource_id: //compute.googleapis.com/projects/cloudcause-demo/zones/us-central1-a/instances/api-prod-1
+    resource_name: api-prod-1
+    unit: hour
+    tags: {env: prod, owner: platform}
+    daily_cost: 15.0
+    daily_quantity: 24
+  - service: Cloud Storage
+    sku: Standard Storage US Multi-region
+    resource_id: //storage.googleapis.com/projects/_/buckets/cc-demo-assets
+    resource_name: cc-demo-assets
+    unit: gibibyte month
+    tags: {env: prod, owner: platform}
+    daily_cost: 5.0
+    daily_quantity: 200
+spikes:
+  - service: Cloud Translation API
+    sku: Translation API - Characters Translated
+    resource_id: //serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com
+    resource_name: translate.googleapis.com
+    unit: million characters
+    tags: {env: prod, owner: content-team}
+    daily_cost: 0.6
+    daily_quantity: 0.03
+    current_daily_cost: 41.0
+    current_daily_quantity: 2.05
+    starts_on: 2026-07-16
+resources:
+  - resource_id: //serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com
+    resource_name: translate.googleapis.com
+    resource_type: serviceusage.googleapis.com/Service
+    region_id: global
+    state: ENABLED
+    created_at: 2025-05-04T12:00:00+00:00
+    tags: {env: prod, owner: content-team}
+  - resource_id: //apikeys.googleapis.com/projects/cloudcause-demo/keys/8f2a4d19-7c33-4f81-93ab-19b0f5d2e1c1
+    resource_name: public-site-translate-key
+    resource_type: apikeys.googleapis.com/Key
+    region_id: global
+    state: ENABLED
+    created_at: 2025-05-04T12:05:00+00:00
+    tags: {env: prod, owner: content-team}
+    attributes: {api_restrictions: none, referrer_restrictions: none}
+metrics:
+  - resource_id: //serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com
+    metric_name: serviceruntime.googleapis.com/api/request_count
+    unit: Count
+    statistic: Sum
+    baseline_daily_value: 12000
+    current_daily_value: 820000
+    starts_on: 2026-07-16
+audit_events:
+  - event_name: google.cloud.translation.v3.TranslationService.TranslateText
+    event_time: 2026-07-16T03:40:00+00:00
+    actor: api-key:8f2a...e1c1
+    actor_type: ApiKey
+    source_ip: 203.0.113.77
+    source_location: unrecognized network AS13335
+    resource_ids:
+      - //serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com
+      - //apikeys.googleapis.com/projects/cloudcause-demo/keys/8f2a4d19-7c33-4f81-93ab-19b0f5d2e1c1
+    summary: First TranslateText request from a source location never seen before
+  - event_name: google.cloud.translation.v3.TranslationService.TranslateText
+    event_time: 2026-07-16T09:12:00+00:00
+    actor: api-key:8f2a...e1c1
+    actor_type: ApiKey
+    source_ip: 198.51.100.211
+    source_location: unrecognized network AS20473
+    resource_ids:
+      - //serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com
+      - //apikeys.googleapis.com/projects/cloudcause-demo/keys/8f2a4d19-7c33-4f81-93ab-19b0f5d2e1c1
+    summary: Sustained TranslateText volume from a second unrecognized network
+recommendations:
+  - recommendation_id: gcp-rec-0001
+    category: security
+    resource_id: //apikeys.googleapis.com/projects/cloudcause-demo/keys/8f2a4d19-7c33-4f81-93ab-19b0f5d2e1c1
+    description: API key has no API or referrer restrictions; restrict it and rotate the key
+    estimated_monthly_savings: 0.0
+  - recommendation_id: gcp-rec-0002
+    category: cost
+    resource_id: //serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com
+    description: Set a quota limit on translate.googleapis.com to cap unexpected usage
+    estimated_monthly_savings: 320.0

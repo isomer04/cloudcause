@@ -1,0 +1,6 @@
+scenario_id: aws-delayed-billing-data
+expect_findings: false
+expect_reconciled: false
+expect_warnings_containing:
+  - complete only through
+  - unavailable data

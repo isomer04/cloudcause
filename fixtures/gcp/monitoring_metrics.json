@@ -1,0 +1,264 @@
+{
+  "items": [
+    {
+      "provider": "gcp",
+      "resource_id": "//serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com",
+      "metric_name": "serviceruntime.googleapis.com/api/request_count",
+      "unit": "Count",
+      "statistic": "Sum",
+      "points": [
+        {
+          "timestamp": "2026-07-06T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-07T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-08T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-09T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-10T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-11T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-12T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-13T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-14T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-15T12:00:00+00:00",
+          "value": 12000
+        },
+        {
+          "timestamp": "2026-07-16T12:00:00+00:00",
+          "value": 820000
+        },
+        {
+          "timestamp": "2026-07-17T12:00:00+00:00",
+          "value": 820000
+        },
+        {
+          "timestamp": "2026-07-18T12:00:00+00:00",
+          "value": 820000
+        },
+        {
+          "timestamp": "2026-07-19T12:00:00+00:00",
+          "value": 820000
+        }
+      ]
+    },
+    {
+      "provider": "gcp",
+      "resource_id": "//serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com",
+      "metric_name": "serviceruntime.googleapis.com/api/characters_translated",
+      "unit": "Count",
+      "statistic": "Sum",
+      "points": [
+        {
+          "timestamp": "2026-07-06T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-07T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-08T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-09T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-10T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-11T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-12T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-13T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-14T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-15T12:00:00+00:00",
+          "value": 30000
+        },
+        {
+          "timestamp": "2026-07-16T12:00:00+00:00",
+          "value": 2050000
+        },
+        {
+          "timestamp": "2026-07-17T12:00:00+00:00",
+          "value": 2050000
+        },
+        {
+          "timestamp": "2026-07-18T12:00:00+00:00",
+          "value": 2050000
+        },
+        {
+          "timestamp": "2026-07-19T12:00:00+00:00",
+          "value": 2050000
+        }
+      ]
+    },
+    {
+      "provider": "gcp",
+      "resource_id": "//compute.googleapis.com/projects/cloudcause-demo/zones/us-central1-a/instances/api-prod-1",
+      "metric_name": "compute.googleapis.com/instance/cpu/utilization",
+      "unit": "Percent",
+      "statistic": "Average",
+      "points": [
+        {
+          "timestamp": "2026-07-06T12:00:00+00:00",
+          "value": 41.5
+        },
+        {
+          "timestamp": "2026-07-07T12:00:00+00:00",
+          "value": 41.5
+        },
+        {
+          "timestamp": "2026-07-08T12:00:00+00:00",
+          "value": 41.5
+        },
+        {
+          "timestamp": "2026-07-09T12:00:00+00:00",
+          "value": 41.5
+        },
+        {
+          "timestamp": "2026-07-10T12:00:00+00:00",
+          "value": 41.5
+        },
+        {
+          "timestamp": "2026-07-11T12:00:00+00:00",
+          "value": 41.5
+        },
+        {
+          "timestamp": "2026-07-12T12:00:00+00:00",
+          "value": 41.5
+        },
+        {
+          "timestamp": "2026-07-13T12:00:00+00:00",
+          "value": 42.8
+        },
+        {
+          "timestamp": "2026-07-14T12:00:00+00:00",
+          "value": 42.8
+        },
+        {
+          "timestamp": "2026-07-15T12:00:00+00:00",
+          "value": 42.8
+        },
+        {
+          "timestamp": "2026-07-16T12:00:00+00:00",
+          "value": 42.8
+        },
+        {
+          "timestamp": "2026-07-17T12:00:00+00:00",
+          "value": 42.8
+        },
+        {
+          "timestamp": "2026-07-18T12:00:00+00:00",
+          "value": 42.8
+        },
+        {
+          "timestamp": "2026-07-19T12:00:00+00:00",
+          "value": 42.8
+        }
+      ]
+    },
+    {
+      "provider": "gcp",
+      "resource_id": "//cloudsql.googleapis.com/projects/cloudcause-demo/instances/orders-db",
+      "metric_name": "database/network/connections",
+      "unit": "Count",
+      "statistic": "Average",
+      "points": [
+        {
+          "timestamp": "2026-07-06T12:00:00+00:00",
+          "value": 46.0
+        },
+        {
+          "timestamp": "2026-07-07T12:00:00+00:00",
+          "value": 46.0
+        },
+        {
+          "timestamp": "2026-07-08T12:00:00+00:00",
+          "value": 46.0
+        },
+        {
+          "timestamp": "2026-07-09T12:00:00+00:00",
+          "value": 46.0
+        },
+        {
+          "timestamp": "2026-07-10T12:00:00+00:00",
+          "value": 46.0
+        },
+        {
+          "timestamp": "2026-07-11T12:00:00+00:00",
+          "value": 46.0
+        },
+        {
+          "timestamp": "2026-07-12T12:00:00+00:00",
+          "value": 46.0
+        },
+        {
+          "timestamp": "2026-07-13T12:00:00+00:00",
+          "value": 45.2
+        },
+        {
+          "timestamp": "2026-07-14T12:00:00+00:00",
+          "value": 45.2
+        },
+        {
+          "timestamp": "2026-07-15T12:00:00+00:00",
+          "value": 45.2
+        },
+        {
+          "timestamp": "2026-07-16T12:00:00+00:00",
+          "value": 45.2
+        },
+        {
+          "timestamp": "2026-07-17T12:00:00+00:00",
+          "value": 45.2
+        },
+        {
+          "timestamp": "2026-07-18T12:00:00+00:00",
+          "value": 45.2
+        },
+        {
+          "timestamp": "2026-07-19T12:00:00+00:00",
+          "value": 45.2
+        }
+      ]
+    }
+  ]
+}

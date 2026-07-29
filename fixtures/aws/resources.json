@@ -1,0 +1,119 @@
+{
+  "items": [
+    {
+      "provider": "aws",
+      "resource_id": "i-0a1b2c3d4e5f67890",
+      "resource_name": "web-prod-1",
+      "resource_type": "AWS::EC2::Instance",
+      "region_id": "us-east-1",
+      "state": "running",
+      "created_at": "2025-11-02T14:11:00+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "platform",
+        "Name": "web-prod-1"
+      },
+      "attributes": {
+        "instance_type": "m6i.large"
+      }
+    },
+    {
+      "provider": "aws",
+      "resource_id": "i-0dev1234567890abc",
+      "resource_name": "ml-experiment-scratch",
+      "resource_type": "AWS::EC2::Instance",
+      "region_id": "us-east-1",
+      "state": "running",
+      "created_at": "2026-07-14T09:03:00+00:00",
+      "tags": {
+        "env": "dev",
+        "Name": "ml-experiment-scratch"
+      },
+      "attributes": {
+        "instance_type": "m6i.xlarge"
+      }
+    },
+    {
+      "provider": "aws",
+      "resource_id": "nat-0ab12cd34ef56789a",
+      "resource_name": "prod-nat-a",
+      "resource_type": "AWS::EC2::NatGateway",
+      "region_id": "us-east-1",
+      "state": "available",
+      "created_at": "2025-06-18T08:40:00+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "platform"
+      },
+      "attributes": {
+        "subnet_id": "subnet-0aa1b2c3d4e5f6789",
+        "vpc_id": "vpc-0f9e8d7c6b5a4321"
+      }
+    },
+    {
+      "provider": "aws",
+      "resource_id": "vol-0c9d8e7f6a5b43210",
+      "resource_name": "prod-data-1",
+      "resource_type": "AWS::EC2::Volume",
+      "region_id": "us-east-1",
+      "state": "in-use",
+      "created_at": "2025-11-02T14:11:30+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "data-platform"
+      },
+      "attributes": {
+        "volume_type": "gp3",
+        "size_gib": "100"
+      }
+    },
+    {
+      "provider": "aws",
+      "resource_id": "arn:aws:s3:::cc-demo-prod-data-lake",
+      "resource_name": "cc-demo-prod-data-lake",
+      "resource_type": "AWS::S3::Bucket",
+      "region_id": "us-east-1",
+      "state": "available",
+      "created_at": "2025-03-11T10:00:00+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "data-platform"
+      },
+      "attributes": {}
+    },
+    {
+      "provider": "aws",
+      "resource_id": "rtb-0f1e2d3c4b5a69870",
+      "resource_name": "prod-private-rt",
+      "resource_type": "AWS::EC2::RouteTable",
+      "region_id": "us-east-1",
+      "state": "available",
+      "created_at": "2025-06-18T08:39:00+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "platform"
+      },
+      "attributes": {
+        "vpc_id": "vpc-0f9e8d7c6b5a4321"
+      }
+    },
+    {
+      "provider": "aws",
+      "resource_id": "vpce-0abc123def4567890",
+      "resource_name": "prod-s3-gateway-endpoint",
+      "resource_type": "AWS::EC2::VPCEndpoint",
+      "region_id": "us-east-1",
+      "state": "deleted",
+      "created_at": "2025-06-18T08:41:00+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "platform"
+      },
+      "attributes": {
+        "service_name": "com.amazonaws.us-east-1.s3",
+        "endpoint_type": "Gateway",
+        "deleted_at": "2026-07-15T02:13:20+00:00"
+      }
+    }
+  ]
+}

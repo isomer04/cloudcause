@@ -1,0 +1,60 @@
+{
+  "provider": "azure",
+  "scenario_id": "default",
+  "is_fixture": true,
+  "currency": "USD",
+  "period": {
+    "start": "2026-07-06",
+    "end": "2026-07-19"
+  },
+  "baseline_period": {
+    "start": "2026-07-06",
+    "end": "2026-07-12"
+  },
+  "current_period": {
+    "start": "2026-07-13",
+    "end": "2026-07-19"
+  },
+  "sources": {
+    "costs": {
+      "source": "cost-management",
+      "schema_version": "2023-11-01",
+      "observed_at": "2026-07-19T23:59:59+00:00",
+      "retrieved_at": "2026-07-20T09:00:00+00:00",
+      "data_through": "2026-07-19T23:59:59+00:00",
+      "file": "cost_management.json"
+    },
+    "resources": {
+      "source": "resource-graph",
+      "schema_version": "1",
+      "observed_at": "2026-07-19T23:59:59+00:00",
+      "retrieved_at": "2026-07-20T09:00:00+00:00",
+      "data_through": "2026-07-19T23:59:59+00:00",
+      "file": "resources.json"
+    },
+    "metrics": {
+      "source": "azure-monitor",
+      "schema_version": "1",
+      "observed_at": "2026-07-19T23:59:59+00:00",
+      "retrieved_at": "2026-07-20T09:00:00+00:00",
+      "data_through": "2026-07-19T23:59:59+00:00",
+      "file": "monitor_metrics.json"
+    },
+    "audit_events": {
+      "source": "activity-log",
+      "schema_version": "1",
+      "observed_at": "2026-07-19T23:59:59+00:00",
+      "retrieved_at": "2026-07-20T09:00:00+00:00",
+      "data_through": "2026-07-19T23:59:59+00:00",
+      "file": "activity_log.json"
+    },
+    "recommendations": {
+      "source": "azure-advisor",
+      "schema_version": "1",
+      "observed_at": "2026-07-19T23:59:59+00:00",
+      "retrieved_at": "2026-07-20T09:00:00+00:00",
+      "data_through": "2026-07-19T23:59:59+00:00",
+      "file": "advisor_recommendations.json"
+    }
+  }
+}

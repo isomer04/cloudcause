@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "provider": "azure",
+      "recommendation_id": "azure-rec-0001",
+      "source": "azure-advisor",
+      "category": "reliability",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/sites/orders-processor",
+      "description": "Function app failure rate is above 90 percent; review the retry policy and the failing dependency",
+      "estimated_monthly_savings": 0.0,
+      "currency": "USD"
+    },
+    {
+      "provider": "azure",
+      "recommendation_id": "azure-rec-0002",
+      "source": "azure-advisor",
+      "category": "cost",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/orders",
+      "description": "Database is oversized for its load; consider a lower tier or serverless",
+      "estimated_monthly_savings": 62.0,
+      "currency": "USD"
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+@import "tailwindcss";
+
+/*
+ * CloudCause visual system — "case ledger".
+ *
+ * The scene: a platform engineer opens this mid-morning in a daylit office
+ * after finance flags a jump on the weekly bill, and has an hour to read dense
+ * evidence and defend a conclusion to someone else. That is a reading task in
+ * bright ambient light, not a wall display in a dark NOC, so the interface is
+ * light, print-legible, and built on hairlines and tabular figures.
+ *
+ * Colour strategy: committed. One saturated house colour (oxblood) carries the
+ * rail, the rank numerals, and the spend delta, because in this product an
+ * increase IS the subject. Savings answer in slate-teal, staleness in ochre.
+ * Deliberately not the navy-and-violet console every other cost tool ships.
+ */
+
+@theme {
+  /* Surfaces: off-white tinted only toward the house hue, never toward cream. */
+  --color-canvas: oklch(0.973 0.0035 25);
+  --color-surface: oklch(1 0 0);
+  --color-sunken: oklch(0.949 0.005 25);
+  --color-rule: oklch(0.889 0.007 25);
+  --color-rule-strong: oklch(0.79 0.011 25);
+
+  /* Ink ramp. Body text sits at --color-ink; nothing lighter carries prose. */
+  --color-ink: oklch(0.235 0.014 25);
+  --color-ink-soft: oklch(0.405 0.014 25);
+  --color-ink-mute: oklch(0.522 0.013 25);
+
+  /* House colour. */
+  --color-brand: oklch(0.418 0.118 22);
+  --color-brand-deep: oklch(0.276 0.078 22);
+  --color-brand-press: oklch(0.352 0.104 22);
+  --color-brand-tint: oklch(0.947 0.017 22);
+  --color-brand-edge: oklch(0.856 0.043 22);
+  --color-on-brand: oklch(0.973 0.008 25);
+  --color-on-brand-mute: oklch(0.815 0.021 25);
+
+  /* Signals. */
+  --color-savings: oklch(0.452 0.072 196);
+  --color-savings-tint: oklch(0.946 0.019 196);
+  --color-caution: oklch(0.545 0.104 74);
+  --color-caution-tint: oklch(0.955 0.033 84);
+  --color-verified: oklch(0.44 0.068 158);
+
+  /* Provider marks: recognisable, desaturated to sit inside the palette. */
+  --color-aws: oklch(0.545 0.112 58);
+  --color-azure: oklch(0.492 0.096 245);
+  --color-gcp: oklch(0.472 0.085 148);
+
+  --font-display: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-ui), ui-monospace, "SFMono-Regular", monospace;
+
+  --text-hero: 2.75rem;
+  --text-hero--line-height: 1.06;
+  --text-hero--letter-spacing: -0.018em;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --shadow-lift: 0 4px 8px -4px oklch(0.235 0.014 25 / 0.18);
+}
+
+@layer theme {
+  :root {
+    /* Semantic stacking order. Nothing in the app uses a raw z-index. */
+    --z-base: 0;
+    --z-sticky: 10;
+    --z-rail: 20;
+    --z-overlay: 30;
+    --z-toast: 40;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-rule);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv05" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Money, IDs, dates and counts are tabular everywhere. */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "zero" 1;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-brand-edge);
+    color: var(--color-ink);
+  }
+
+  ::placeholder {
+    color: var(--color-ink-mute);
+  }
+}
+
+@layer components {
+  /* One shared shape for the flat, hairline-ruled panels the report is built from. */
+  .panel {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
+  }
+
+  .field-label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+
+  .control {
+    width: 100%;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.625rem;
+    font-size: 0.875rem;
+    color: var(--color-ink);
+    transition: border-color 140ms var(--ease-out-quint);
+  }
+
+  .control:hover {
+    border-color: var(--color-brand-edge);
+  }
+
+  .control:focus {
+    border-color: var(--color-brand);
+    outline: none;
+    box-shadow: inset 0 0 0 1px var(--color-brand);
+  }
+
+  .hairline-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+  }
+
+  .hairline-table th {
+    text-align: left;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--color-rule-strong);
+    white-space: nowrap;
+  }
+
+  .hairline-table td {
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--color-rule);
+    vertical-align: top;
+    color: var(--color-ink);
+  }
+
+  .hairline-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .hairline-table tbody tr:hover td {
+    background-color: var(--color-sunken);
+  }
+}
+
+@layer utilities {
+  /* Streamed rows arrive one at a time; they enter, they never pop. */
+  .enter-row {
+    animation: enter-row 320ms var(--ease-out-expo) both;
+  }
+
+  @keyframes enter-row {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .enter-panel {
+    animation: enter-panel 420ms var(--ease-out-expo) both;
+  }
+
+  @keyframes enter-panel {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* The running indicator: a hairline that sweeps, not a spinner. */
+  .sweep::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-brand) 45%,
+      var(--color-brand) 55%,
+      transparent
+    );
+    animation: sweep 1.6s var(--ease-out-quint) infinite;
+  }
+
+  @keyframes sweep {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  .pulse-dot {
+    animation: pulse-dot 1.4s var(--ease-out-quint) infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter-row,
+  .enter-panel,
+  .pulse-dot,
+  .sweep::after {
+    animation: none;
+  }
+
+  .enter-row,
+  .enter-panel {
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+  }
+}

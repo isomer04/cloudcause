@@ -1,0 +1,40 @@
+# Azure reservation and savings plan interpretation.
+rules:
+  - id: azure-reservation-amortization
+    provider: azure
+    rule_type: cost_driver
+    title: Reservation purchase and expiry effects
+    service: reservations
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      An up-front reservation purchase appears as a single large actual cost on the
+      purchase date, while amortized cost spreads it over the term. Expiry returns
+      pay-as-you-go rates with no usage change.
+    cost_drivers: [reservation_purchase, reservation_expiry, coverage_percentage]
+    investigation_checks: [compare_actual_and_amortized, check_reservation_expiry, compare_usage_quantity_first]
+    matches:
+      services: [Reservations, Reserved VM Instances, Savings Plan]
+      categories: [commitment_change]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea
+      updated_at: 2026-01-15
+    confidence: supported
+
+  - id: azure-billing-change-2026-savings-plan-reporting
+    provider: azure
+    rule_type: billing_change
+    title: Savings plan utilization reporting change
+    valid_from: 2026-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Savings plan benefit rows are reported against the consuming resource rather
+      than the benefit id. Periods before the change keep the old attribution.
+    source:
+      type: release_notes
+      url: https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-compute-overview
+      updated_at: 2026-02-20
+    confidence: supported
+    data:
+      affects: [benefit_attribution]

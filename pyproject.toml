@@ -1,0 +1,88 @@
+[project]
+name = "cloudcause"
+version = "0.1.0"
+description = "CloudCause - multi-cloud cost spike investigator (workspace root)"
+requires-python = ">=3.11"
+license = "PolyForm-Noncommercial-1.0.0"
+license-files = ["LICENSE"]
+dependencies = [
+    "cloudcause-contracts",
+    "cloudcause-focus-normalizer",
+    "cloudcause-anomaly-detection",
+    "cloudcause-billing-knowledge",
+    "cloudcause-datasets",
+    "cloudcause-providers",
+    "cloudcause-evidence-validation",
+    "cloudcause-worker-core",
+    "cloudcause-mcp-servers",
+    "cloudcause-investigator-aws-strands",
+    "cloudcause-investigator-azure-maf",
+    "cloudcause-orchestrator-adk",
+    "cloudcause-api",
+]
+
+# Optional live-agent stack. Never required for offline tests or CI.
+[project.optional-dependencies]
+live = [
+    # 2.3.0 renamed GOOGLE_GENAI_USE_VERTEXAI to GOOGLE_GENAI_USE_ENTERPRISE.
+    "google-adk>=2.3.0",
+    "agent-framework>=1.0.0b1",
+    "strands-agents>=1.0.0",
+]
+# Optional PostgreSQL investigation history. SQLite history needs nothing extra.
+postgres = [
+    "psycopg[binary]>=3.2.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.6",
+    "httpx>=0.27",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["packages/*", "services/*", "apps/api"]
+
+[tool.uv.sources]
+cloudcause-contracts = { workspace = true }
+cloudcause-focus-normalizer = { workspace = true }
+cloudcause-anomaly-detection = { workspace = true }
+cloudcause-billing-knowledge = { workspace = true }
+cloudcause-datasets = { workspace = true }
+cloudcause-providers = { workspace = true }
+cloudcause-evidence-validation = { workspace = true }
+cloudcause-worker-core = { workspace = true }
+cloudcause-mcp-servers = { workspace = true }
+cloudcause-investigator-aws-strands = { workspace = true }
+cloudcause-investigator-azure-maf = { workspace = true }
+cloudcause-orchestrator-adk = { workspace = true }
+cloudcause-api = { workspace = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-m 'not live' --strict-markers"
+markers = [
+    "live: requires model API keys and real agent frameworks (excluded from offline CI)",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+# Third-party course material. Untracked (see .gitignore) but excluded here so a
+# local copy never shows up in lint output.
+extend-exclude = ["course_reference"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+# Azure and GCP resource ids are long and must stay verbatim.
+"tests/**" = ["E501"]
+"evaluations/**" = ["E501"]
