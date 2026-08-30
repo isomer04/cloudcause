@@ -1,0 +1,165 @@
+# Service specific Azure cost drivers used by the investigation playbooks.
+rules:
+  - id: azure-vm-idle-instance
+    provider: azure
+    rule_type: cost_driver
+    title: Running virtual machines bill regardless of utilization
+    service: virtual-machines
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      A VM in the running state bills compute hours even at near zero CPU. Only the
+      deallocated state stops compute charges; stopped VMs still bill disks.
+    cost_drivers: [compute_hours, os_license, attached_disks]
+    investigation_checks: [check_cpu_utilization, check_network_activity, check_power_state, check_owner_tag]
+    matches:
+      services: [Virtual Machines, Virtual Machines Licenses]
+      categories: [idle_compute]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing
+      updated_at: 2026-03-05
+    confidence: supported
+
+  - id: azure-managed-disk-unattached
+    provider: azure
+    rule_type: cost_driver
+    title: Unattached managed disks and snapshots keep billing
+    service: managed-disks
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Managed disks bill for the provisioned tier size even when unattached, and
+      premium tiers round up to the next size.
+    cost_drivers: [provisioned_tier, snapshot_storage, disk_operations]
+    investigation_checks: [check_disk_attachment, check_disk_tier, check_snapshot_age]
+    matches:
+      services: [Storage, Managed Disks]
+      categories: [unattached_storage]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types
+      updated_at: 2025-11-20
+    confidence: supported
+
+  - id: azure-bandwidth-egress
+    provider: azure
+    rule_type: cost_driver
+    title: Bandwidth and cross-region replication
+    service: bandwidth
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Outbound internet transfer and inter-region traffic bill per GB. Geo-redundant
+      storage replication and cross-region reads are common hidden sources.
+    cost_drivers: [internet_egress_gb, inter_region_gb, availability_zone_transfer]
+    investigation_checks: [identify_source_and_destination_region, check_replication_config, compare_transfer_bytes]
+    matches:
+      services: [Bandwidth, Storage - Bandwidth]
+      categories: [cross_region_transfer]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/architecture/framework/cost/optimize-network-costs
+      updated_at: 2025-10-01
+    confidence: supported
+
+  - id: azure-openai-inference-usage
+    provider: azure
+    rule_type: cost_driver
+    title: Azure OpenAI inference bills per token
+    service: azure-openai
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Standard deployments bill input and output tokens per model. Provisioned
+      throughput bills reserved capacity whether or not it is used.
+    cost_drivers: [input_tokens, output_tokens, model_choice, provisioned_throughput_units]
+    investigation_checks: [compare_request_count, compare_token_volume, check_model_deployment_change, check_retry_pattern]
+    matches:
+      services: [Cognitive Services, Azure OpenAI]
+      categories: [ai_inference]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/manage-costs
+      updated_at: 2026-06-18
+    confidence: supported
+
+  - id: azure-aks-node-autoscale
+    provider: azure
+    rule_type: cost_driver
+    title: AKS node pool scaling drives compute cost
+    service: aks
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      AKS bills the underlying node VMs and disks. Autoscaler activity from
+      unschedulable pods can hold a pool at its maximum node count.
+    cost_drivers: [node_hours, node_disks, load_balancer_hours]
+    investigation_checks: [compare_node_count, check_scaling_events, check_pod_resource_requests]
+    matches:
+      services: [Azure Kubernetes Service, AKS]
+      categories: [kubernetes_autoscaling]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/aks/cluster-autoscaler-overview
+      updated_at: 2026-02-12
+    confidence: supported
+
+  - id: azure-sql-idle-database
+    provider: azure
+    rule_type: cost_driver
+    title: Provisioned SQL databases bill continuously
+    service: sql-database
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      A provisioned vCore or DTU database bills continuously with no connections.
+      Serverless auto-pause is the only state that stops compute billing.
+    cost_drivers: [compute_hours, storage_gb, backup_storage]
+    investigation_checks: [check_connection_count, check_dtu_or_cpu_usage, check_owner_tag]
+    matches:
+      services: [SQL Database, Azure Database for PostgreSQL]
+      categories: [idle_database]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview
+      updated_at: 2025-12-03
+    confidence: supported
+
+  - id: azure-tagging-coverage
+    provider: azure
+    rule_type: cost_driver
+    title: Untagged resources cannot be attributed to an owner
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Tags are not inherited by child resources unless a policy enforces it, so
+      untagged spend must be reported as unattributed.
+    cost_drivers: [missing_tags]
+    investigation_checks: [list_untagged_resources, check_tag_policy, report_as_unattributed]
+    matches:
+      categories: [untagged_resources]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
+      updated_at: 2025-08-08
+    confidence: supported
+
+  - id: azure-price-change-vs-usage
+    provider: azure
+    rule_type: cost_driver
+    title: Separating a rate change from a usage change
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Flat usage quantity with rising cost means the effective rate moved: price
+      list change, currency change, tier change, or lost reservation coverage.
+    cost_drivers: [meter_rate, currency, reservation_loss]
+    investigation_checks: [compare_unit_cost, compare_usage_quantity, check_reservation_coverage, check_retail_price_snapshot]
+    matches:
+      categories: [pricing_change]
+    source:
+      type: official_api
+      url: https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices
+      updated_at: 2026-03-27
+    confidence: supported

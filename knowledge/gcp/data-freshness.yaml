@@ -1,0 +1,25 @@
+# How delayed GCP billing data must be interpreted.
+rules:
+  - id: gcp-billing-export-freshness
+    provider: gcp
+    rule_type: data_freshness
+    title: GCP billing export delay
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Rows are appended to the BigQuery export with a delay and late rows can arrive
+      for earlier usage dates. A day that looks empty is usually incomplete data, so
+      recent days must not be read as zero usage or as a resolved anomaly.
+    investigation_checks:
+      - compare_data_through_with_period_end
+      - exclude_incomplete_final_day
+      - re_check_late_arriving_rows
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables
+      updated_at: 2026-05-28
+    confidence: supported
+    data:
+      expected_delay_hours: 36
+      late_arrival_days: 3
+      treat_missing_as_zero: false

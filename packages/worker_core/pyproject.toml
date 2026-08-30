@@ -1,0 +1,34 @@
+[project]
+name = "cloudcause-worker-core"
+version = "0.1.0"
+description = "Shared investigation engine scaffolding: playbooks, evidence, native tools, worker HTTP app"
+requires-python = ">=3.11"
+dependencies = [
+    "cloudcause-contracts",
+    "cloudcause-focus-normalizer",
+    "cloudcause-anomaly-detection",
+    "cloudcause-billing-knowledge",
+    "cloudcause-datasets",
+    "cloudcause-providers",
+    "cloudcause-rate-limit",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "httpx>=0.27",
+    "openai>=1.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cloudcause_worker_core"]
+
+[tool.uv.sources]
+cloudcause-contracts = { workspace = true }
+cloudcause-focus-normalizer = { workspace = true }
+cloudcause-anomaly-detection = { workspace = true }
+cloudcause-billing-knowledge = { workspace = true }
+cloudcause-datasets = { workspace = true }
+cloudcause-providers = { workspace = true }
+cloudcause-rate-limit = { workspace = true }

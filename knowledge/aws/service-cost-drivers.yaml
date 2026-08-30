@@ -1,0 +1,171 @@
+# Service specific AWS cost drivers used by the investigation playbooks.
+rules:
+  - id: aws-ec2-idle-instance
+    provider: aws
+    rule_type: cost_driver
+    title: EC2 instances bill while running regardless of utilization
+    service: ec2
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      A running EC2 instance bills per second whether or not it does work. Very low
+      CPU and network activity together with a recent RunInstances event points at a
+      forgotten instance rather than a workload change.
+    cost_drivers: [instance_hours, instance_type_rate, attached_storage]
+    investigation_checks: [check_cpu_utilization, check_network_activity, check_launch_event, check_owner_tag]
+    matches:
+      services: [Amazon Elastic Compute Cloud, EC2]
+      categories: [idle_compute]
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-billing.html
+      updated_at: 2025-10-08
+    confidence: supported
+
+  - id: aws-ebs-unattached-volume
+    provider: aws
+    rule_type: cost_driver
+    title: Unattached EBS volumes and snapshots keep billing
+    service: ebs
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      EBS volumes bill for provisioned capacity even when detached, and snapshots
+      bill for stored data. Volumes in the available state with no attachment are
+      pure waste.
+    cost_drivers: [provisioned_gb_month, snapshot_storage, provisioned_iops]
+    investigation_checks: [check_volume_state, check_attachment_history, check_snapshot_age]
+    matches:
+      services: [Amazon Elastic Block Store, EBS]
+      categories: [unattached_storage]
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/ebs/latest/userguide/ebs-pricing.html
+      updated_at: 2025-07-16
+    confidence: supported
+
+  - id: aws-data-transfer-cross-region
+    provider: aws
+    rule_type: cost_driver
+    title: Cross-region and cross-AZ data transfer
+    service: data-transfer
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Inter-region transfer bills per GB on the sending side, and cross-AZ traffic
+      bills in both directions. A new replica, backup target, or relocated consumer
+      is the usual trigger.
+    cost_drivers: [inter_region_gb, cross_az_gb, internet_egress_gb]
+    investigation_checks: [identify_source_and_destination_region, check_replication_config, compare_transfer_bytes]
+    matches:
+      services: [AWS Data Transfer, Data Transfer]
+      categories: [cross_region_transfer]
+    source:
+      type: official_documentation
+      url: https://aws.amazon.com/ec2/pricing/on-demand/
+      updated_at: 2026-01-09
+    confidence: supported
+
+  - id: aws-bedrock-inference-usage
+    provider: aws
+    rule_type: cost_driver
+    title: Bedrock inference bills per token
+    service: bedrock
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      On-demand Bedrock inference bills input and output tokens per model. A sudden
+      increase usually means higher request volume, a larger model, longer prompts,
+      or a retry loop rather than a price change.
+    cost_drivers: [input_tokens, output_tokens, model_choice, provisioned_throughput]
+    investigation_checks: [compare_invocation_count, compare_token_volume, check_model_id_change, check_retry_pattern]
+    matches:
+      services: [Amazon Bedrock, Bedrock]
+      categories: [ai_inference]
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-pricing.html
+      updated_at: 2026-06-02
+    confidence: supported
+
+  - id: aws-eks-autoscaling
+    provider: aws
+    rule_type: cost_driver
+    title: EKS node scaling drives compute cost
+    service: eks
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Cluster autoscaler and Karpenter add nodes when pods cannot be scheduled. A
+      bad resource request or a stuck deployment can hold nodes at maximum count.
+    cost_drivers: [node_hours, control_plane_hours, attached_volumes]
+    investigation_checks: [compare_node_count, check_scaling_events, check_pod_resource_requests]
+    matches:
+      services: [Amazon Elastic Kubernetes Service, EKS]
+      categories: [kubernetes_autoscaling]
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html
+      updated_at: 2026-02-25
+    confidence: supported
+
+  - id: aws-rds-idle-instance
+    provider: aws
+    rule_type: cost_driver
+    title: RDS instances bill while available
+    service: rds
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      An available RDS instance bills instance hours plus storage and backup even
+      with zero connections. Stopped instances still bill storage.
+    cost_drivers: [instance_hours, allocated_storage, backup_storage, io_requests]
+    investigation_checks: [check_database_connections, check_read_write_iops, check_owner_tag]
+    matches:
+      services: [Amazon Relational Database Service, RDS, Amazon Aurora]
+      categories: [idle_database]
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.html
+      updated_at: 2025-12-11
+    confidence: supported
+
+  - id: aws-tagging-coverage
+    provider: aws
+    rule_type: cost_driver
+    title: Untagged resources cannot be attributed to an owner
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Cost allocation tags must be activated before they appear in billing data.
+      Spend on resources without an owner tag is reported as unattributed rather
+      than assigned to a guessed team.
+    cost_drivers: [missing_cost_allocation_tags]
+    investigation_checks: [list_untagged_resources, check_tag_activation, report_as_unattributed]
+    matches:
+      categories: [untagged_resources]
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html
+      updated_at: 2025-06-24
+    confidence: supported
+
+  - id: aws-pricing-change-vs-usage
+    provider: aws
+    rule_type: cost_driver
+    title: Separating a rate change from a usage change
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      When usage quantity is flat but cost rose, the effective unit rate changed:
+      price change, region change, tier change, or lost discount. This is not a
+      usage anomaly and must not be reported as one.
+    cost_drivers: [unit_price, discount_loss, tier_change]
+    investigation_checks: [compare_unit_cost, compare_usage_quantity, check_commitment_coverage, check_price_list_snapshot]
+    matches:
+      categories: [pricing_change]
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html
+      updated_at: 2025-09-30
+    confidence: supported

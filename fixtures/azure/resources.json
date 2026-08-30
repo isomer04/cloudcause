@@ -1,0 +1,70 @@
+{
+  "items": [
+    {
+      "provider": "azure",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/sites/orders-processor",
+      "resource_name": "orders-processor",
+      "resource_type": "Microsoft.Web/sites",
+      "region_id": "eastus",
+      "state": "Running",
+      "created_at": "2025-09-30T11:20:00+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "orders-team"
+      },
+      "attributes": {
+        "kind": "functionapp",
+        "plan": "Consumption"
+      }
+    },
+    {
+      "provider": "azure",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/serverFarms/plan-prod",
+      "resource_name": "plan-prod",
+      "resource_type": "Microsoft.Web/serverFarms",
+      "region_id": "eastus",
+      "state": "Ready",
+      "created_at": "2025-04-14T09:00:00+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "platform"
+      },
+      "attributes": {
+        "sku": "P1v3"
+      }
+    },
+    {
+      "provider": "azure",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Storage/storageAccounts/ccdemoprod",
+      "resource_name": "ccdemoprod",
+      "resource_type": "Microsoft.Storage/storageAccounts",
+      "region_id": "eastus",
+      "state": "Available",
+      "created_at": "2025-04-14T09:05:00+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "platform"
+      },
+      "attributes": {
+        "replication": "LRS"
+      }
+    },
+    {
+      "provider": "azure",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/orders",
+      "resource_name": "orders",
+      "resource_type": "Microsoft.Sql/servers/databases",
+      "region_id": "eastus",
+      "state": "Online",
+      "created_at": "2025-04-14T09:10:00+00:00",
+      "tags": {
+        "env": "prod",
+        "owner": "orders-team"
+      },
+      "attributes": {
+        "tier": "Standard",
+        "dtu": "100"
+      }
+    }
+  ]
+}

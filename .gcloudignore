@@ -1,0 +1,15 @@
+# What `gcloud builds submit` uploads as the build source.
+#
+# Without this file gcloud generates a default that ignores only .gcloudignore,
+# .git, and .gitignore -- it does not read this repo's ignore rules, so an
+# untracked .env in the working tree is uploaded to Cloud Build and kept in the
+# source bucket. .dockerignore does not cover this: it governs what the daemon
+# sees after the upload has already happened.
+#
+# #!include pulls in .gitignore verbatim, negations included, so the secret
+# rules stay in one place rather than being duplicated and drifting.
+
+.gcloudignore
+.git
+.gitignore
+#!include:.gitignore

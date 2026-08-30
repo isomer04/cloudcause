@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "provider": "gcp",
+      "event_id": "gcp-evt-0001",
+      "event_name": "google.cloud.translation.v3.TranslationService.TranslateText",
+      "event_time": "2026-07-16T03:40:00+00:00",
+      "source": "cloud-audit-logs",
+      "actor": "api-key:8f2a...e1c1",
+      "actor_type": "ApiKey",
+      "region_id": "global",
+      "source_ip": "203.0.113.77",
+      "source_location": "unrecognized network AS13335",
+      "resource_ids": [
+        "//serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com",
+        "//apikeys.googleapis.com/projects/cloudcause-demo/keys/8f2a4d19-7c33-4f81-93ab-19b0f5d2e1c1"
+      ],
+      "summary": "First TranslateText request from a source location never seen before, using API key public-site-translate-key",
+      "attributes": {
+        "userAgent": "python-requests/2.32",
+        "status": "OK"
+      }
+    },
+    {
+      "provider": "gcp",
+      "event_id": "gcp-evt-0002",
+      "event_name": "google.cloud.translation.v3.TranslationService.TranslateText",
+      "event_time": "2026-07-16T09:12:00+00:00",
+      "source": "cloud-audit-logs",
+      "actor": "api-key:8f2a...e1c1",
+      "actor_type": "ApiKey",
+      "region_id": "global",
+      "source_ip": "198.51.100.211",
+      "source_location": "unrecognized network AS20473",
+      "resource_ids": [
+        "//serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com",
+        "//apikeys.googleapis.com/projects/cloudcause-demo/keys/8f2a4d19-7c33-4f81-93ab-19b0f5d2e1c1"
+      ],
+      "summary": "Sustained TranslateText volume from a second unrecognized network",
+      "attributes": {
+        "userAgent": "curl/8.6.0",
+        "status": "OK"
+      }
+    },
+    {
+      "provider": "gcp",
+      "event_id": "gcp-evt-0003",
+      "event_name": "google.cloud.translation.v3.TranslationService.TranslateText",
+      "event_time": "2026-07-17T14:02:00+00:00",
+      "source": "cloud-audit-logs",
+      "actor": "api-key:8f2a...e1c1",
+      "actor_type": "ApiKey",
+      "region_id": "global",
+      "source_ip": "203.0.113.77",
+      "source_location": "unrecognized network AS13335",
+      "resource_ids": [
+        "//serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com",
+        "//apikeys.googleapis.com/projects/cloudcause-demo/keys/8f2a4d19-7c33-4f81-93ab-19b0f5d2e1c1"
+      ],
+      "summary": "Request volume continues from the same unrecognized network",
+      "attributes": {
+        "userAgent": "python-requests/2.32",
+        "status": "OK"
+      }
+    }
+  ]
+}

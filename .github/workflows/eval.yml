@@ -1,0 +1,69 @@
+name: offline-system-evaluation
+
+# Deterministic seeded scenarios only: no cloud accounts, model keys, or live
+# provider calls. The harness exits non-zero when any scenario misses its
+# expected finding, evidence, reconciliation, or rule-citation requirements.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: evaluation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CLOUDCAUSE_DATA_MODE: fixtures
+  CLOUDCAUSE_AGENT_MODE: stub
+  CLOUDCAUSE_ORCHESTRATOR_MODE: inprocess
+  CLOUDCAUSE_WORKER_MODE: inprocess
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Sync workspace
+        run: uv sync --frozen
+
+      - name: Run seeded scenario evaluation
+        run: >-
+          uv run python evaluations/run_evaluation.py
+          --json-output reports/evaluation-results.json
+          --markdown-output reports/evaluation-results.md
+
+      - name: Publish evaluation summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f reports/evaluation-results.md ]]; then
+              cat reports/evaluation-results.md >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "## CloudCause Evaluation Results" >> "$GITHUB_STEP_SUMMARY"
+              echo >> "$GITHUB_STEP_SUMMARY"
+              echo "The evaluation stopped before producing a report." >> "$GITHUB_STEP_SUMMARY"
+            fi
+
+      - name: Upload evaluation results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-results-${{ github.run_id }}
+          path: |
+            reports/evaluation-results.json
+            reports/evaluation-results.md
+          if-no-files-found: warn
+          retention-days: 30

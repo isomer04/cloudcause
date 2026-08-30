@@ -1,0 +1,27 @@
+# CloudCause Next.js frontend.
+#
+#   docker compose -f docker/docker-compose.yml up --build web
+#   open http://localhost:3000
+#
+# Two stages: the first installs and builds, the second ships only the
+# standalone server. The container never holds cloud credentials or model keys;
+# it talks to the gateway over CLOUDCAUSE_API_URL and nothing else.
+
+FROM node:24-alpine AS build
+WORKDIR /app
+COPY web/package.json web/package-lock.json ./
+RUN npm ci --no-audit --no-fund
+COPY web ./
+RUN npm run build
+
+FROM node:24-alpine AS runtime
+WORKDIR /app
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PORT=3000 \
+    HOSTNAME=0.0.0.0
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/.next/static ./.next/static
+USER node
+EXPOSE 3000
+CMD ["node", "server.js"]

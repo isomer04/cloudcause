@@ -1,0 +1,5 @@
+{
+  "note": "Content hashes of the monitored official sources. Updated only by a human running scripts/check_provider_docs.py --update-baseline after reviewing the report.",
+  "generated_at": null,
+  "sources": {}
+}

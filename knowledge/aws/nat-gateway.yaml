@@ -1,0 +1,39 @@
+# AWS NAT Gateway billing interpretation.
+rules:
+  - id: aws-nat-gateway-data-processing
+    provider: aws
+    rule_type: cost_driver
+    title: NAT Gateway hourly and data processing charges
+    service: nat-gateway
+    valid_from: 2025-01-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    schema_version: "1"
+    summary: >
+      NAT Gateway bills an hourly charge per gateway plus a per-GB data processing
+      charge for every byte that passes through it, in addition to any normal data
+      transfer charge. Traffic to S3 or DynamoDB that is routed through a NAT Gateway
+      instead of a VPC endpoint pays the processing charge unnecessarily.
+    cost_drivers:
+      - hourly_gateway_charge
+      - processed_data
+      - cross_availability_zone_transfer
+    investigation_checks:
+      - compare_bytes_processed
+      - inspect_route_changes
+      - identify_traffic_destination
+      - check_for_vpc_endpoint
+    matches:
+      services:
+        - Amazon Virtual Private Cloud
+        - NAT Gateway
+      categories:
+        - nat_gateway_misroute
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-pricing.html
+      updated_at: 2025-11-04
+    confidence: supported
+    data:
+      processing_charge_unit: GB
+      vpc_endpoint_alternative: gateway endpoint for S3 and DynamoDB

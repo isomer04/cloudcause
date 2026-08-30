@@ -1,0 +1,69 @@
+# GCP commitment interpretation. Two versions on purpose: the spend-based
+# commitment model changed, and an older bill must keep the older rule.
+rules:
+  - id: gcp-committed-use-discount-v1
+    provider: gcp
+    rule_type: cost_driver
+    title: Committed use discounts (single price model)
+    service: committed-use-discounts
+    valid_from: 2024-01-01
+    valid_to: 2025-12-31
+    reviewed_at: 2026-07-27
+    summary: >
+      Spend-based commitments applied a single discounted price per eligible SKU
+      group, and credits appeared as committed use discount rows against the
+      consuming service.
+    cost_drivers: [commitment_fee, credit_application, commitment_expiry]
+    investigation_checks: [compare_usage_quantity_first, check_commitment_expiry, add_credit_amounts]
+    matches:
+      services: [Committed Use Discount, Commitments]
+      categories: [commitment_change]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/docs/cuds
+      updated_at: 2025-09-16
+    confidence: supported
+    data:
+      model: single_price
+
+  - id: gcp-committed-use-discount-multiprice
+    provider: gcp
+    rule_type: cost_driver
+    title: Committed use discounts (multi-price model)
+    service: committed-use-discounts
+    valid_from: 2026-01-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    summary: >
+      Spend-based commitments bill eligible usage at several discounted prices, so a
+      cost change can come from the mix of covered SKUs rather than from usage. Do
+      not apply this model to billing periods before it took effect.
+    cost_drivers: [commitment_fee, multi_price_coverage, credit_application, commitment_expiry]
+    investigation_checks: [compare_usage_quantity_first, check_covered_sku_mix, check_commitment_expiry, add_credit_amounts]
+    matches:
+      services: [Committed Use Discount, Commitments]
+      categories: [commitment_change]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/billing/docs/resources/multiprice-cuds
+      updated_at: 2026-06-30
+    confidence: supported
+    data:
+      model: multi_price
+
+  - id: gcp-billing-change-2026-multiprice-cuds
+    provider: gcp
+    rule_type: billing_change
+    title: Spend-based commitment billing moved to multiple prices
+    valid_from: 2026-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      From January 2026 spend-based commitments are billed with multiple prices.
+      Comparisons that straddle the change must not read the mix shift as new usage.
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/billing/docs/resources/multiprice-cuds
+      updated_at: 2026-06-30
+    confidence: supported
+    data:
+      affects: [commitment_credit_attribution]

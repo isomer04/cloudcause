@@ -1,0 +1,52 @@
+# Official channels the scheduled documentation check watches.
+#
+# These are the only acceptable inputs for billing-rule changes. A change here
+# never updates a rule automatically: it opens a report for human review, which
+# is the workflow in docs/billing-knowledge.md section 5.
+sources:
+  aws:
+    - id: aws-cost-management-doc-history
+      url: https://docs.aws.amazon.com/cost-management/latest/userguide/doc-history.html
+      watches: [billing_rules, schemas]
+    - id: aws-cost-explorer-api-reference
+      url: https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Operations_AWS_Cost_Explorer_Service.html
+      watches: [api_versions]
+    - id: aws-cur2-table-dictionary
+      url: https://docs.aws.amazon.com/cur/latest/userguide/table-dictionary-cur2.html
+      watches: [export_schema]
+    - id: aws-nat-gateway-pricing
+      url: https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-pricing.html
+      watches: [pricing_dimensions]
+  azure:
+    - id: azure-cost-management-data
+      url: https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-data
+      watches: [billing_rules, data_freshness]
+    - id: azure-cost-management-query-api
+      url: https://learn.microsoft.com/en-us/rest/api/cost-management/query/usage
+      watches: [api_versions, export_schema]
+    - id: azure-consumption-api-transition
+      url: https://learn.microsoft.com/en-us/azure/cost-management-billing/automate/transition-consumption-apis-cost-management-apis
+      watches: [deprecations]
+    - id: azure-functions-consumption-costs
+      url: https://learn.microsoft.com/en-us/azure/azure-functions/functions-consumption-costs
+      watches: [pricing_dimensions]
+  gcp:
+    - id: gcp-billing-release-notes
+      url: https://cloud.google.com/billing/docs/release-notes
+      watches: [billing_rules, deprecations]
+    - id: gcp-billing-export
+      url: https://cloud.google.com/billing/docs/how-to/export-data-bigquery
+      watches: [export_schema]
+    - id: gcp-multiprice-cuds
+      url: https://cloud.google.com/billing/docs/resources/multiprice-cuds
+      watches: [commitments]
+    - id: gcp-network-pricing
+      url: https://cloud.google.com/vpc/network-pricing
+      watches: [pricing_dimensions]
+  focus:
+    - id: focus-specification
+      url: https://focus.finops.org/focus-specification/
+      watches: [specification]
+    - id: focus-changelog
+      url: https://focus.finops.org/focus-specification/changelog/
+      watches: [specification]

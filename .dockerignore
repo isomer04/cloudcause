@@ -1,0 +1,68 @@
+# Both images build with the repo root as context (docker-compose.yml sets
+# `context: ../..`), so without this file every build ships ~1.5 GB to the
+# daemon, most of it host-built virtualenvs and node_modules.
+#
+# This is a deny list, not an allow list: the Dockerfiles COPY named paths
+# (packages, services, api, fixtures, knowledge, evaluations, web), so anything
+# not listed here still reaches the build. Adding a path the Dockerfiles COPY
+# will break the build rather than slim it.
+
+# Host-built environments. Dockerfile runs `uv sync` and Dockerfile.web runs
+# `npm ci` inside the image; copying the host's trees in is both wasted transfer
+# and wrong, since Windows/macOS native binaries do not run on the Alpine and
+# slim base images.
+.venv/
+venv/
+**/node_modules/
+**/.next/
+.next-dev/
+.next-dev-*/
+
+# Python build and cache artifacts.
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.pytest-tmp-*/
+.ruff_cache/
+dist/
+build/
+
+# Version control and CI. Nothing in the images reads git history.
+.git/
+.gitignore
+.github/
+
+# Secrets. These are gitignored too, but a stray .env in a working tree would
+# otherwise be baked into an image layer.
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+service-account*.json
+
+# Local run artifacts and databases.
+reports/
+.evaluation_output/
+*.log
+.cloudcause/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Docs and infra: not imported by any service at runtime. The Dockerfile copies
+# README.md explicitly, so it is re-included below.
+docs/
+docker/
+terraform/
+cloudbuild.yaml
+*.md
+!README.md
+
+# Editor and OS noise.
+.DS_Store
+.vscode/
+.idea/
+.claude/
+.superdesign/

@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "provider": "gcp",
+      "recommendation_id": "gcp-rec-0001",
+      "source": "recommender",
+      "category": "security",
+      "resource_id": "//apikeys.googleapis.com/projects/cloudcause-demo/keys/8f2a4d19-7c33-4f81-93ab-19b0f5d2e1c1",
+      "description": "API key has no API or referrer restrictions; restrict it and rotate the key",
+      "estimated_monthly_savings": 0.0,
+      "currency": "USD"
+    },
+    {
+      "provider": "gcp",
+      "recommendation_id": "gcp-rec-0002",
+      "source": "recommender",
+      "category": "cost",
+      "resource_id": "//serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com",
+      "description": "Set a quota limit on translate.googleapis.com to cap unexpected usage",
+      "estimated_monthly_savings": 320.0,
+      "currency": "USD"
+    }
+  ]
+}

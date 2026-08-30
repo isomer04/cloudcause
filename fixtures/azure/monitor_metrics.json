@@ -1,0 +1,264 @@
+{
+  "items": [
+    {
+      "provider": "azure",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/sites/orders-processor",
+      "metric_name": "FunctionExecutionCount",
+      "unit": "Count",
+      "statistic": "Total",
+      "points": [
+        {
+          "timestamp": "2026-07-06T12:00:00+00:00",
+          "value": 120000
+        },
+        {
+          "timestamp": "2026-07-07T12:00:00+00:00",
+          "value": 120000
+        },
+        {
+          "timestamp": "2026-07-08T12:00:00+00:00",
+          "value": 120000
+        },
+        {
+          "timestamp": "2026-07-09T12:00:00+00:00",
+          "value": 120000
+        },
+        {
+          "timestamp": "2026-07-10T12:00:00+00:00",
+          "value": 120000
+        },
+        {
+          "timestamp": "2026-07-11T12:00:00+00:00",
+          "value": 120000
+        },
+        {
+          "timestamp": "2026-07-12T12:00:00+00:00",
+          "value": 120000
+        },
+        {
+          "timestamp": "2026-07-13T12:00:00+00:00",
+          "value": 120000
+        },
+        {
+          "timestamp": "2026-07-14T12:00:00+00:00",
+          "value": 1900000
+        },
+        {
+          "timestamp": "2026-07-15T12:00:00+00:00",
+          "value": 1900000
+        },
+        {
+          "timestamp": "2026-07-16T12:00:00+00:00",
+          "value": 1900000
+        },
+        {
+          "timestamp": "2026-07-17T12:00:00+00:00",
+          "value": 1900000
+        },
+        {
+          "timestamp": "2026-07-18T12:00:00+00:00",
+          "value": 1900000
+        },
+        {
+          "timestamp": "2026-07-19T12:00:00+00:00",
+          "value": 1900000
+        }
+      ]
+    },
+    {
+      "provider": "azure",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/sites/orders-processor",
+      "metric_name": "FunctionErrors",
+      "unit": "Count",
+      "statistic": "Total",
+      "points": [
+        {
+          "timestamp": "2026-07-06T12:00:00+00:00",
+          "value": 40
+        },
+        {
+          "timestamp": "2026-07-07T12:00:00+00:00",
+          "value": 40
+        },
+        {
+          "timestamp": "2026-07-08T12:00:00+00:00",
+          "value": 40
+        },
+        {
+          "timestamp": "2026-07-09T12:00:00+00:00",
+          "value": 40
+        },
+        {
+          "timestamp": "2026-07-10T12:00:00+00:00",
+          "value": 40
+        },
+        {
+          "timestamp": "2026-07-11T12:00:00+00:00",
+          "value": 40
+        },
+        {
+          "timestamp": "2026-07-12T12:00:00+00:00",
+          "value": 40
+        },
+        {
+          "timestamp": "2026-07-13T12:00:00+00:00",
+          "value": 40
+        },
+        {
+          "timestamp": "2026-07-14T12:00:00+00:00",
+          "value": 1750000
+        },
+        {
+          "timestamp": "2026-07-15T12:00:00+00:00",
+          "value": 1750000
+        },
+        {
+          "timestamp": "2026-07-16T12:00:00+00:00",
+          "value": 1750000
+        },
+        {
+          "timestamp": "2026-07-17T12:00:00+00:00",
+          "value": 1750000
+        },
+        {
+          "timestamp": "2026-07-18T12:00:00+00:00",
+          "value": 1750000
+        },
+        {
+          "timestamp": "2026-07-19T12:00:00+00:00",
+          "value": 1750000
+        }
+      ]
+    },
+    {
+      "provider": "azure",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/serverFarms/plan-prod",
+      "metric_name": "Percentage CPU",
+      "unit": "Percent",
+      "statistic": "Average",
+      "points": [
+        {
+          "timestamp": "2026-07-06T12:00:00+00:00",
+          "value": 38.4
+        },
+        {
+          "timestamp": "2026-07-07T12:00:00+00:00",
+          "value": 38.4
+        },
+        {
+          "timestamp": "2026-07-08T12:00:00+00:00",
+          "value": 38.4
+        },
+        {
+          "timestamp": "2026-07-09T12:00:00+00:00",
+          "value": 38.4
+        },
+        {
+          "timestamp": "2026-07-10T12:00:00+00:00",
+          "value": 38.4
+        },
+        {
+          "timestamp": "2026-07-11T12:00:00+00:00",
+          "value": 38.4
+        },
+        {
+          "timestamp": "2026-07-12T12:00:00+00:00",
+          "value": 38.4
+        },
+        {
+          "timestamp": "2026-07-13T12:00:00+00:00",
+          "value": 41.2
+        },
+        {
+          "timestamp": "2026-07-14T12:00:00+00:00",
+          "value": 41.2
+        },
+        {
+          "timestamp": "2026-07-15T12:00:00+00:00",
+          "value": 41.2
+        },
+        {
+          "timestamp": "2026-07-16T12:00:00+00:00",
+          "value": 41.2
+        },
+        {
+          "timestamp": "2026-07-17T12:00:00+00:00",
+          "value": 41.2
+        },
+        {
+          "timestamp": "2026-07-18T12:00:00+00:00",
+          "value": 41.2
+        },
+        {
+          "timestamp": "2026-07-19T12:00:00+00:00",
+          "value": 41.2
+        }
+      ]
+    },
+    {
+      "provider": "azure",
+      "resource_id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/orders",
+      "metric_name": "connection_successful",
+      "unit": "Count",
+      "statistic": "Total",
+      "points": [
+        {
+          "timestamp": "2026-07-06T12:00:00+00:00",
+          "value": 8400
+        },
+        {
+          "timestamp": "2026-07-07T12:00:00+00:00",
+          "value": 8400
+        },
+        {
+          "timestamp": "2026-07-08T12:00:00+00:00",
+          "value": 8400
+        },
+        {
+          "timestamp": "2026-07-09T12:00:00+00:00",
+          "value": 8400
+        },
+        {
+          "timestamp": "2026-07-10T12:00:00+00:00",
+          "value": 8400
+        },
+        {
+          "timestamp": "2026-07-11T12:00:00+00:00",
+          "value": 8400
+        },
+        {
+          "timestamp": "2026-07-12T12:00:00+00:00",
+          "value": 8400
+        },
+        {
+          "timestamp": "2026-07-13T12:00:00+00:00",
+          "value": 8600
+        },
+        {
+          "timestamp": "2026-07-14T12:00:00+00:00",
+          "value": 8600
+        },
+        {
+          "timestamp": "2026-07-15T12:00:00+00:00",
+          "value": 8600
+        },
+        {
+          "timestamp": "2026-07-16T12:00:00+00:00",
+          "value": 8600
+        },
+        {
+          "timestamp": "2026-07-17T12:00:00+00:00",
+          "value": 8600
+        },
+        {
+          "timestamp": "2026-07-18T12:00:00+00:00",
+          "value": 8600
+        },
+        {
+          "timestamp": "2026-07-19T12:00:00+00:00",
+          "value": 8600
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[project]
+name = "cloudcause-investigator-aws-strands"
+version = "0.1.0"
+description = "AWS cost investigator built on AWS Strands Agents"
+requires-python = ">=3.11"
+dependencies = [
+    "cloudcause-contracts",
+    "cloudcause-worker-core",
+    "cloudcause-mcp-servers",
+    "strands-agents>=1.0.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+]
+
+[project.scripts]
+cloudcause-aws-worker = "cloudcause_aws.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cloudcause_aws"]
+
+[tool.uv.sources]
+cloudcause-contracts = { workspace = true }
+cloudcause-worker-core = { workspace = true }
+cloudcause-mcp-servers = { workspace = true }

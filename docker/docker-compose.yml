@@ -1,0 +1,159 @@
+# Local stack: gateway, ADK orchestrator, the two framework workers, and the UI,
+# each in its own container talking over the versioned HTTP contracts.
+#
+#   docker compose -f docker/docker-compose.yml up --build
+#   open http://localhost:3000        (Next.js UI)
+#   open http://localhost:8000/docs   (gateway API)
+#
+# Defaults are fixture data and stub agents: no cloud accounts, no model keys.
+
+name: cloudcause
+
+x-common: &common
+  build:
+    context: ..
+    dockerfile: docker/Dockerfile
+  environment: &common-env
+    CLOUDCAUSE_DATA_MODE: ${CLOUDCAUSE_DATA_MODE:-fixtures}
+    CLOUDCAUSE_AGENT_MODE: ${CLOUDCAUSE_AGENT_MODE:-stub}
+    CLOUDCAUSE_ORCHESTRATOR_MODE: http
+    CLOUDCAUSE_WORKER_MODE: http
+    CLOUDCAUSE_ORCHESTRATOR_URL: http://orchestrator:8100
+    CLOUDCAUSE_AWS_WORKER_URL: http://aws-worker:8101
+    CLOUDCAUSE_AZURE_WORKER_URL: http://azure-worker:8102
+    CLOUDCAUSE_HOST: 0.0.0.0
+    OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+    GOOGLE_GENAI_USE_ENTERPRISE: "FALSE"
+  restart: unless-stopped
+
+# Uploaded datasets. Unlike investigation history, this is not optional and it
+# never degrades to memory: get_data_provider runs independently in the gateway,
+# the orchestrator, each worker, and every MCP child, so all four have to read the
+# same dataset. Without a shared DSN the ingest endpoints answer 503 naming this
+# block rather than producing a mid-run "unknown dataset". The image needs no
+# change: docker/Dockerfile already installs the postgres extra.
+x-dataset-env: &dataset-env
+  CLOUDCAUSE_DATABASE_URL: postgresql://cloudcause:${POSTGRES_PASSWORD:-cloudcause-local-only}@postgres:5432/cloudcause
+  # Required once the rate limiter is Redis: the gateway refuses an empty salt.
+  CLOUDCAUSE_ID_HASH_SALT: ${CLOUDCAUSE_ID_HASH_SALT:-cloudcause-local-only}
+  CLOUDCAUSE_UPLOADS_ENABLED: ${CLOUDCAUSE_UPLOADS_ENABLED:-true}
+  CLOUDCAUSE_DATASET_TTL_SECONDS: ${CLOUDCAUSE_DATASET_TTL_SECONDS:-7200}
+
+# The limiter is per-process, so the three agent-hosting services would each hold
+# a private OpenAI allowance on the memory backend. Redis shares one bucket.
+x-rate-limit-env: &rate-limit-env
+  CLOUDCAUSE_RATE_LIMIT_BACKEND: ${CLOUDCAUSE_RATE_LIMIT_BACKEND:-redis}
+  CLOUDCAUSE_RATE_LIMIT_REDIS_URL: ${CLOUDCAUSE_RATE_LIMIT_REDIS_URL:-redis://redis:6379/0}
+
+services:
+  aws-worker:
+    <<: *common
+    command: ["cloudcause-aws-worker"]
+    environment:
+      <<: [*common-env, *dataset-env, *rate-limit-env]
+    ports: ["8101:8101"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8101/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  azure-worker:
+    <<: *common
+    command: ["cloudcause-azure-worker"]
+    environment:
+      <<: [*common-env, *dataset-env, *rate-limit-env]
+    ports: ["8102:8102"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8102/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  orchestrator:
+    <<: *common
+    command: ["cloudcause-orchestrator"]
+    environment:
+      <<: [*common-env, *dataset-env, *rate-limit-env]
+    ports: ["8100:8100"]
+    depends_on:
+      aws-worker: {condition: service_healthy}
+      azure-worker: {condition: service_healthy}
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8100/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    <<: *common
+    command: ["cloudcause-api"]
+    environment:
+      <<: [*common-env, *dataset-env, *rate-limit-env]
+      # Investigation history. Unreachable Postgres degrades to memory rather
+      # than taking the gateway down; /health reports which one is in use. The
+      # dataset store beside it does the opposite and refuses uploads instead.
+      CLOUDCAUSE_HISTORY_BACKEND: ${CLOUDCAUSE_HISTORY_BACKEND:-postgres}
+      CLOUDCAUSE_HISTORY_KEEP: ${CLOUDCAUSE_HISTORY_KEEP:-50}
+    ports: ["8000:8000"]
+    depends_on:
+      orchestrator: {condition: service_healthy}
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Next.js frontend. The gateway stays the only UI boundary.
+  web:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.web
+    environment:
+      CLOUDCAUSE_API_URL: http://api:8000
+    ports: ["3000:3000"]
+    depends_on:
+      api: {condition: service_healthy}
+    restart: unless-stopped
+
+  # Investigation history. The gateway applies its own migrations on startup, so
+  # there is no init SQL to keep in sync with the schema.
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cloudcause
+      POSTGRES_USER: cloudcause
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cloudcause-local-only}
+    ports: ["5432:5432"]
+    volumes: ["cloudcause-pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cloudcause"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # Rate-limit buckets. No volume: a lost bucket costs one refill, not data.
+  # Loopback-only because this Redis has no password; containers use the network.
+  redis:
+    image: redis:7-alpine
+    ports: ["127.0.0.1:6379:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  cloudcause-pgdata:
