@@ -1,0 +1,27 @@
+# Builds either CloudCause image. `gcloud builds submit --tag` cannot be used:
+# it hardcodes `docker build -t $TAG .` and has no flag for a Dockerfile outside
+# the source root, and both of ours live under docker/.
+#
+#   gcloud builds submit --config cloudbuild.yaml . \
+#     --substitutions=_DOCKERFILE=docker/Dockerfile,_IMAGE=<repo>/api:v1
+
+substitutions:
+  _DOCKERFILE: docker/Dockerfile
+  # No default: an empty tag should fail loudly rather than build nothing.
+  _IMAGE: ""
+
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-f", "${_DOCKERFILE}", "-t", "${_IMAGE}", "."]
+
+# Pushed after a successful build. Terraform creates the repository.
+images:
+  - "${_IMAGE}"
+
+options:
+  # Avoids the "requires a logs bucket" failure on projects with no legacy
+  # Cloud Build bucket.
+  logging: CLOUD_LOGGING_ONLY
+
+# The gateway installs 99 packages including three agent frameworks.
+timeout: 1800s

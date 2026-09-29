@@ -1,0 +1,35 @@
+# Azure Functions billing interpretation.
+rules:
+  - id: azure-functions-consumption-executions
+    provider: azure
+    rule_type: cost_driver
+    title: Azure Functions consumption plan billing
+    service: functions
+    valid_from: 2025-02-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    summary: >
+      The consumption plan bills total executions and gigabyte-seconds of execution
+      time. A retry loop multiplies executions without any increase in useful work,
+      so execution count rises far faster than successful invocations.
+    cost_drivers:
+      - execution_count
+      - execution_gb_seconds
+      - outbound_data_transfer
+    investigation_checks:
+      - compare_execution_count
+      - compare_failure_rate
+      - correlate_with_deployment_event
+      - inspect_retry_policy
+      - check_dead_letter_queue
+    matches:
+      services: [Azure Functions, Functions]
+      categories: [functions_retry_loop]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/azure-functions/functions-consumption-costs
+      updated_at: 2026-06-11
+    confidence: supported
+    data:
+      free_grant_executions_per_month: 1000000
+      retry_signal_metrics: [FunctionExecutionCount, FunctionErrors]

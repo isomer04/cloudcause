@@ -1,0 +1,75 @@
+# Azure Cost Management interpretation rules.
+rules:
+  - id: azure-cost-management-grouping
+    provider: azure
+    rule_type: cost_driver
+    title: Generic Azure cost grouping and attribution
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Cost Management reports actual cost by default; amortized cost must be
+      requested explicitly when reservations are in play. Meter category is the
+      stable grouping key because service display names change.
+    cost_drivers: [usage_quantity, meter_rate, reservation_amortization]
+    investigation_checks: [group_by_meter_category, compare_actual_and_amortized, check_resource_id_coverage]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-data
+      updated_at: 2026-05-19
+    confidence: supported
+
+  - id: azure-cost-data-freshness
+    provider: azure
+    rule_type: data_freshness
+    title: Azure cost data delay
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Azure usage data is typically 8 to 24 hours behind and is not final until the
+      invoice is issued. Missing recent days mean unavailable data, not zero usage.
+    investigation_checks: [compare_data_through_with_period_end, exclude_incomplete_final_day, label_estimate_versus_invoice]
+    source:
+      type: official_documentation
+      url: https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-data
+      updated_at: 2026-05-19
+    confidence: supported
+    data:
+      expected_delay_hours: 24
+      finalization_days: 5
+      treat_missing_as_zero: false
+
+  - id: azure-exports-schema
+    provider: azure
+    rule_type: export_schema
+    title: Azure Cost Management exports and query result schema
+    valid_from: 2023-11-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Query results arrive as a columns/rows envelope where UsageDate is an integer
+      yyyymmdd. CloudCause pins API version 2023-11-01 and quarantines unknown
+      versions.
+    source:
+      type: official_api
+      url: https://learn.microsoft.com/en-us/rest/api/cost-management/query/usage
+      updated_at: 2026-04-02
+    confidence: supported
+    data:
+      supported_versions: ["1", "1.0", "2023-11-01"]
+      required_columns: [UsageDate, Cost, MeterCategory]
+
+  - id: azure-pricing-source
+    provider: azure
+    rule_type: pricing_source
+    title: Authoritative Azure price source
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Retail prices come from the Azure Retail Prices API with a dated snapshot.
+      Model memory and web search are not acceptable price sources.
+    source:
+      type: official_api
+      url: https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices
+      updated_at: 2026-03-27
+    confidence: supported
+    data:
+      api: retail-prices

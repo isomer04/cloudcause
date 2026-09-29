@@ -1,0 +1,75 @@
+id: gcp-kubernetes-autoscaling
+title: "GCP: GKE autoscaling loop from oversized pod requests"
+provider: gcp
+category: kubernetes_autoscaling
+question: Why did Kubernetes spending increase after the last deployment?
+account_id: 01ABCD-2345EF-6789GH
+region: us-central1
+periods:
+  baseline: {start: 2026-07-06, end: 2026-07-12}
+  current: {start: 2026-07-13, end: 2026-07-19}
+notes: >
+  A deployment ships a CPU request larger than any node can satisfy, so pods stay
+  pending and the autoscaler holds the pool at its maximum size.
+baseline_services:
+  - service: Compute Engine
+    sku: N2 Instance Core running in Americas
+    resource_id: //compute.googleapis.com/projects/cloudcause-demo/zones/us-central1-a/instances/api-prod-1
+    resource_name: api-prod-1
+    unit: hour
+    tags: {env: prod, owner: platform}
+    daily_cost: 15.0
+    daily_quantity: 24
+  - service: Cloud Storage
+    sku: Standard Storage US Multi-region
+    resource_id: //storage.googleapis.com/projects/_/buckets/cc-demo-assets
+    resource_name: cc-demo-assets
+    unit: gibibyte month
+    tags: {env: prod, owner: platform}
+    daily_cost: 5.0
+    daily_quantity: 200
+spikes:
+  - service: Kubernetes Engine
+    sku: Node hours for cluster prod
+    resource_id: //container.googleapis.com/projects/cloudcause-demo/locations/us-central1/clusters/prod
+    resource_name: prod
+    unit: hour
+    tags: {env: prod, owner: platform}
+    daily_cost: 24.0
+    daily_quantity: 72
+    current_daily_cost: 76.8
+    current_daily_quantity: 230
+    starts_on: 2026-07-15
+resources:
+  - resource_id: //container.googleapis.com/projects/cloudcause-demo/locations/us-central1/clusters/prod
+    resource_name: prod
+    resource_type: container.googleapis.com/Cluster
+    region_id: us-central1
+    state: RUNNING
+    created_at: 2025-02-10T09:00:00+00:00
+    tags: {env: prod, owner: platform}
+    attributes: {autoscaling: enabled, max_nodes: "10"}
+metrics:
+  - resource_id: //container.googleapis.com/projects/cloudcause-demo/locations/us-central1/clusters/prod
+    metric_name: node_count
+    unit: Count
+    statistic: Average
+    baseline_daily_value: 3.0
+    current_daily_value: 9.6
+    starts_on: 2026-07-15
+  - resource_id: //container.googleapis.com/projects/cloudcause-demo/locations/us-central1/clusters/prod
+    metric_name: pending_pods
+    unit: Count
+    statistic: Average
+    baseline_daily_value: 0.0
+    current_daily_value: 14.0
+    starts_on: 2026-07-15
+audit_events:
+  - event_name: container.clusters.update
+    event_time: 2026-07-15T06:30:00+00:00
+    actor: ci-deployer@cloudcause.example
+    actor_type: ServiceAccount
+    region_id: us-central1
+    resource_ids: [//container.googleapis.com/projects/cloudcause-demo/locations/us-central1/clusters/prod]
+    summary: Applied workload update; the checkout deployment requests 12 vCPU per pod
+recommendations: []

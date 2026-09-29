@@ -1,0 +1,26 @@
+# How delayed AWS billing data must be interpreted.
+rules:
+  - id: aws-cost-data-freshness
+    provider: aws
+    rule_type: data_freshness
+    title: AWS billing data delay
+    valid_from: 2024-01-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    summary: >
+      Cost Explorer and Data Exports lag actual usage by up to 24 hours for usage
+      charges and longer around invoice finalization. Missing recent usage must be
+      treated as unavailable data, never as zero usage or a resolved anomaly.
+    investigation_checks:
+      - compare_data_through_with_period_end
+      - exclude_incomplete_final_day
+      - label_estimate_versus_invoice
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/cost-management/latest/userguide/ce-data-freshness.html
+      updated_at: 2026-04-14
+    confidence: supported
+    data:
+      expected_delay_hours: 24
+      finalization_days: 3
+      treat_missing_as_zero: false

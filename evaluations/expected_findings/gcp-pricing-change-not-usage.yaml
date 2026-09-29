@@ -1,0 +1,14 @@
+scenario_id: gcp-pricing-change-not-usage
+expect_findings: true
+expect_reconciled: true
+forbidden_categories: [idle_database, api_key_abuse, ai_inference]
+top_finding:
+  provider: gcp
+  category: pricing_change
+  resource_id: //cloudsql.googleapis.com/projects/cloudcause-demo/instances/orders-db
+  cost_increase: 25.9
+  cost_tolerance: 0.02
+  min_confidence: 0.3
+  min_evidence: 2
+  required_evidence_sources: [cost, usage]
+  required_rule_ids: [gcp-price-change-vs-usage]

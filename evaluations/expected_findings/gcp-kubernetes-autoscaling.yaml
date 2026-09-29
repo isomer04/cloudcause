@@ -1,0 +1,13 @@
+scenario_id: gcp-kubernetes-autoscaling
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: gcp
+  category: kubernetes_autoscaling
+  resource_id: //container.googleapis.com/projects/cloudcause-demo/locations/us-central1/clusters/prod
+  cost_increase: 264.0
+  cost_tolerance: 0.02
+  min_confidence: 0.5
+  min_evidence: 4
+  required_evidence_sources: [cost, usage, metric, audit]
+  required_rule_ids: [gcp-gke-autoscaling]

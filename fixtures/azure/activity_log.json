@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "provider": "azure",
+      "event_id": "azure-evt-0001",
+      "event_name": "Microsoft.Web/sites/publish/action",
+      "event_time": "2026-07-14T18:20:00+00:00",
+      "source": "activity-log",
+      "actor": "deploy@cloudcause.example",
+      "actor_type": "User",
+      "region_id": "eastus",
+      "resource_ids": [
+        "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/sites/orders-processor"
+      ],
+      "summary": "Deployment release-2026.07.14 succeeded; the queue trigger binding and retry policy were updated",
+      "attributes": {
+        "status": "Succeeded",
+        "correlationId": "8fa1c2d3-4455-6677-8899-aabbccddeeff"
+      }
+    },
+    {
+      "provider": "azure",
+      "event_id": "azure-evt-0002",
+      "event_name": "Microsoft.Web/sites/restart/action",
+      "event_time": "2026-07-14T18:25:00+00:00",
+      "source": "activity-log",
+      "actor": "deploy@cloudcause.example",
+      "actor_type": "User",
+      "region_id": "eastus",
+      "resource_ids": [
+        "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/sites/orders-processor"
+      ],
+      "summary": "Restarted the function app after deployment",
+      "attributes": {
+        "status": "Succeeded"
+      }
+    }
+  ]
+}

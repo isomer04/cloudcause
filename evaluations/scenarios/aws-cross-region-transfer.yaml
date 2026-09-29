@@ -1,0 +1,73 @@
+id: aws-cross-region-transfer
+title: "AWS: cross-region data transfer from a new read replica"
+provider: aws
+category: cross_region_transfer
+question: Why did AWS data transfer spending increase this week?
+account_id: "111122223333"
+region: us-east-1
+periods:
+  baseline: {start: 2026-07-06, end: 2026-07-12}
+  current: {start: 2026-07-13, end: 2026-07-19}
+notes: A read replica is created in another region, so replication traffic crosses regions.
+baseline_services:
+  - service: Amazon Elastic Compute Cloud
+    sku: "BoxUsage:m6i.large"
+    resource_id: i-0feed1234567890ab
+    resource_name: app-prod-2
+    unit: Hrs
+    tags: {env: prod, owner: platform}
+    daily_cost: 12.0
+    daily_quantity: 24
+  - service: Amazon Relational Database Service
+    sku: "InstanceUsage:db.r6g.large"
+    resource_id: "arn:aws:rds:us-east-1:111122223333:db:orders"
+    resource_name: orders
+    unit: Hrs
+    tags: {env: prod, owner: orders-team}
+    daily_cost: 9.0
+    daily_quantity: 24
+spikes:
+  - service: AWS Data Transfer
+    sku: "USE1-EUC1-AWS-Out-Bytes"
+    resource_id: "arn:aws:rds:us-east-1:111122223333:db:orders"
+    resource_name: orders
+    unit: GB
+    tags: {env: prod, owner: orders-team}
+    daily_cost: 1.5
+    daily_quantity: 30
+    current_daily_cost: 21.0
+    current_daily_quantity: 420
+    starts_on: 2026-07-14
+resources:
+  - resource_id: "arn:aws:rds:us-east-1:111122223333:db:orders"
+    resource_name: orders
+    resource_type: "AWS::RDS::DBInstance"
+    region_id: us-east-1
+    state: available
+    created_at: 2025-05-19T09:00:00+00:00
+    tags: {env: prod, owner: orders-team}
+    attributes: {engine: postgres, replicas: "1"}
+metrics:
+  - resource_id: "arn:aws:rds:us-east-1:111122223333:db:orders"
+    metric_name: NetworkTransmitThroughput
+    unit: Bytes
+    statistic: Sum
+    baseline_daily_value: 32212254720
+    current_daily_value: 450971566080
+    starts_on: 2026-07-14
+  - resource_id: "arn:aws:rds:us-east-1:111122223333:db:orders"
+    metric_name: DatabaseConnections
+    unit: Count
+    statistic: Average
+    baseline_daily_value: 120.0
+    current_daily_value: 118.0
+audit_events:
+  - event_name: CreateDBInstanceReadReplica
+    event_time: 2026-07-14T04:20:00+00:00
+    actor: "arn:aws:iam::111122223333:role/ci-deployer"
+    actor_type: AssumedRole
+    source_ip: 198.51.100.44
+    region_id: eu-central-1
+    resource_ids: ["arn:aws:rds:us-east-1:111122223333:db:orders"]
+    summary: Created read replica orders-eu in eu-central-1 from source orders in us-east-1
+recommendations: []

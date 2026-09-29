@@ -1,0 +1,52 @@
+# AWS commitment and discount interpretation.
+rules:
+  - id: aws-savings-plan-coverage
+    provider: aws
+    rule_type: cost_driver
+    title: Savings Plans and Reserved Instance coverage changes
+    service: savings-plans
+    valid_from: 2024-01-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    summary: >
+      When a Savings Plan or Reserved Instance expires, on-demand rates return and
+      cost rises with no change in usage. Compare amortized cost and coverage
+      percentage before calling this a usage anomaly.
+    cost_drivers:
+      - commitment_expiry
+      - coverage_percentage
+      - on_demand_rate_return
+    investigation_checks:
+      - compare_usage_quantity_first
+      - check_commitment_expiry_dates
+      - compare_amortized_and_unblended
+    matches:
+      services:
+        - Savings Plans
+        - Reserved Instances
+      categories:
+        - commitment_change
+    source:
+      type: official_documentation
+      url: https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html
+      updated_at: 2025-08-19
+    confidence: supported
+
+  - id: aws-billing-change-2025-amortized-columns
+    provider: aws
+    rule_type: billing_change
+    title: Data Exports amortized cost column naming
+    valid_from: 2025-01-01
+    valid_to: null
+    reviewed_at: 2026-07-27
+    summary: >
+      Data Exports (CUR 2.0) renamed several amortized cost columns compared with
+      legacy CUR. Investigations covering periods before the switch must use the
+      legacy column names.
+    source:
+      type: release_notes
+      url: https://docs.aws.amazon.com/cost-management/latest/userguide/doc-history.html
+      updated_at: 2026-05-06
+    confidence: supported
+    data:
+      affects: ["line_item_net_amortized_cost"]

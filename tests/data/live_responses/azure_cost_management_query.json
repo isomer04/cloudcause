@@ -1,0 +1,56 @@
+{
+  "_note": "Wire shape of the Cost Management Query API, ActualCost, Daily, grouped by ResourceId and MeterCategory, two pages. Ids are the fixture subscription; re-record from a real account with `make live-cloud` and scrub before committing.",
+  "request": {
+    "type": "ActualCost",
+    "timeframe": "Custom",
+    "timePeriod": {"from": "2026-09-01T00:00:00Z", "to": "2026-09-03T23:59:59Z"},
+    "dataset": {
+      "granularity": "Daily",
+      "aggregation": {"totalCost": {"name": "Cost", "function": "Sum"}},
+      "grouping": [
+        {"type": "Dimension", "name": "ResourceId"},
+        {"type": "Dimension", "name": "MeterCategory"}
+      ]
+    }
+  },
+  "pages": [
+    {
+      "id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/providers/Microsoft.CostManagement/query/0e1f2a3b-0000-0000-0000-000000000001",
+      "name": "0e1f2a3b-0000-0000-0000-000000000001",
+      "type": "Microsoft.CostManagement/query",
+      "properties": {
+        "nextLink": "https://management.azure.com/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/providers/Microsoft.CostManagement/query?api-version=2023-11-01&$skiptoken=AQAAAA%3D%3D",
+        "columns": [
+          {"name": "Cost", "type": "Number"},
+          {"name": "UsageDate", "type": "Number"},
+          {"name": "ResourceId", "type": "String"},
+          {"name": "MeterCategory", "type": "String"},
+          {"name": "Currency", "type": "String"}
+        ],
+        "rows": [
+          [14.72, 20260901, "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourcegroups/rg-prod/providers/microsoft.web/sites/orders-processor", "Functions", "USD"],
+          [3.10, 20260901, "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourcegroups/rg-prod/providers/microsoft.storage/storageaccounts/ordersprodsa", "Storage", "USD"],
+          [41.35, 20260902, "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourcegroups/rg-prod/providers/microsoft.web/sites/orders-processor", "Functions", "USD"]
+        ]
+      }
+    },
+    {
+      "id": "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/providers/Microsoft.CostManagement/query/0e1f2a3b-0000-0000-0000-000000000001",
+      "name": "0e1f2a3b-0000-0000-0000-000000000001",
+      "type": "Microsoft.CostManagement/query",
+      "properties": {
+        "nextLink": null,
+        "columns": [
+          {"name": "Cost", "type": "Number"},
+          {"name": "UsageDate", "type": "Number"},
+          {"name": "ResourceId", "type": "String"},
+          {"name": "MeterCategory", "type": "String"},
+          {"name": "Currency", "type": "String"}
+        ],
+        "rows": [
+          [3.08, 20260902, "/subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourcegroups/rg-prod/providers/microsoft.storage/storageaccounts/ordersprodsa", "Storage", "USD"]
+        ]
+      }
+    }
+  ]
+}

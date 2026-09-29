@@ -1,0 +1,14 @@
+scenario_id: aws-cost-only-unexplained
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: aws
+  category: unexplained_increase
+  cost_increase: 72.0
+  cost_tolerance: 0.02
+  min_confidence: 0.05
+  # "Cost does not prove cause": with no operational evidence the published
+  # confidence must stay at or below the unsupported-cause ceiling.
+  max_confidence: 0.4
+  min_evidence: 2
+  required_evidence_sources: [cost, usage]

@@ -1,0 +1,13 @@
+scenario_id: aws-cross-region-transfer
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: aws
+  category: cross_region_transfer
+  resource_id: "arn:aws:rds:us-east-1:111122223333:db:orders"
+  cost_increase: 117.0
+  cost_tolerance: 0.02
+  min_confidence: 0.5
+  min_evidence: 4
+  required_evidence_sources: [cost, usage, metric, audit]
+  required_rule_ids: [aws-data-transfer-cross-region]

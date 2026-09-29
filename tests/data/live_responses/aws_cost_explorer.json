@@ -1,0 +1,2623 @@
+{
+  "_note": "Recorded from a real account with `make live-cloud` on 2026-09-16: GetCostAndUsage DAILY over 2026-09-13..2026-09-15, grouped by SERVICE and USAGE_TYPE, one batch per RECORD_TYPE filter, pages concatenated. The account id is replaced with the fixture account; nothing else is altered. Re-record and scrub the same way after a wire-shape change.",
+  "account_id": "111122223333",
+  "batches": [
+    {
+      "record_type": "Bundled Discount",
+      "ResultsByTime": [
+        {
+          "TimePeriod": {
+            "Start": "2026-09-13",
+            "End": "2026-09-14"
+          },
+          "Total": {},
+          "Groups": [
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0003798277",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0003798277",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": ""
+                }
+              }
+            }
+          ],
+          "Estimated": true
+        },
+        {
+          "TimePeriod": {
+            "Start": "2026-09-14",
+            "End": "2026-09-15"
+          },
+          "Total": {},
+          "Groups": [
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0003798278",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0003798278",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": ""
+                }
+              }
+            }
+          ],
+          "Estimated": true
+        },
+        {
+          "TimePeriod": {
+            "Start": "2026-09-15",
+            "End": "2026-09-16"
+          },
+          "Total": {
+            "AmortizedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            },
+            "UnblendedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            },
+            "UsageQuantity": {
+              "Amount": "0",
+              "Unit": ""
+            }
+          },
+          "Groups": [],
+          "Estimated": true
+        }
+      ]
+    },
+    {
+      "record_type": "Credit",
+      "ResultsByTime": [
+        {
+          "TimePeriod": {
+            "Start": "2026-09-13",
+            "End": "2026-09-14"
+          },
+          "Total": {},
+          "Groups": [
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManager-Secrets"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.026666688",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.026666688",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Secrets"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManagerAPIRequest"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.00001",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.00001",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "API Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon DynamoDB",
+                "USE1-TimedPITRStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.000001028",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.000001028",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon EC2 Container Registry (ECR)",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.008385528",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.008385528",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Monitoring-Automation-INT"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000004167",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000004167",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Objects"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier1"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.00006",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.00006",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier2"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000008",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000008",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TagStorage-TagHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.000000715",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.000000715",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Tag-Mo"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TimedStorage-INT-FA-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.000325571",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.000325571",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Vectors-TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000005772",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000005772",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            }
+          ],
+          "Estimated": true
+        },
+        {
+          "TimePeriod": {
+            "Start": "2026-09-14",
+            "End": "2026-09-15"
+          },
+          "Total": {},
+          "Groups": [
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManager-Secrets"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.026666688",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.026666688",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Secrets"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon DynamoDB",
+                "USE1-TimedPITRStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.000001012",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.000001012",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon EC2 Container Registry (ECR)",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.008385528",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.008385528",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "EBS:VolumeUsage.gp3"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0382222184",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0382222184",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "NatGateway-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000000018",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000000018",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "NatGateway-Hours"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.225",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.225",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Elastic Compute Cloud - Compute",
+                "BoxUsage:t2.micro"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0126601124",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0126601124",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Monitoring-Automation-INT"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000004167",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000004167",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Objects"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier1"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.00005",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.00005",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier2"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000008",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000008",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TagStorage-TagHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.000000715",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.000000715",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Tag-Mo"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TimedStorage-INT-FA-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.000325571",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.000325571",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Vectors-TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000005772",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000005772",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Virtual Private Cloud",
+                "USE1-PublicIPv4:IdleAddress"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.00012639",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.00012639",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Virtual Private Cloud",
+                "USE1-PublicIPv4:InUseAddress"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.028320835",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.028320835",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Hrs"
+                }
+              }
+            }
+          ],
+          "Estimated": true
+        },
+        {
+          "TimePeriod": {
+            "Start": "2026-09-15",
+            "End": "2026-09-16"
+          },
+          "Total": {},
+          "Groups": [
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManager-Secrets"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.01666668",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.01666668",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Secrets"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManagerAPIRequest"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.000015",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.000015",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "API Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon DynamoDB",
+                "USE1-TimedPITRStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.000000674",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.000000674",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon EC2 Container Registry (ECR)",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.005590352",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.005590352",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "EBS:VolumeUsage.gp3"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0186666648",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0186666648",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "NatGateway-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000000383",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000000383",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "NatGateway-Hours"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.675",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.675",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier1"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.00003",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.00003",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier2"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000008",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000008",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Vectors-TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.0000002886",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.0000002886",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Virtual Private Cloud",
+                "USE1-PublicIPv4:InUseAddress"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "-0.075",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "-0.075",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0",
+                  "Unit": "Hrs"
+                }
+              }
+            }
+          ],
+          "Estimated": true
+        }
+      ]
+    },
+    {
+      "record_type": "Usage",
+      "ResultsByTime": [
+        {
+          "TimePeriod": {
+            "Start": "2026-09-13",
+            "End": "2026-09-14"
+          },
+          "Total": {},
+          "Groups": [
+            {
+              "Keys": [
+                "AWS Glue",
+                "USE1-Catalog-Request"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "2",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AWS Key Management Service",
+                "us-east-1-KMS-Requests"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "3",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManager-Secrets"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0266666688",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0266666688",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0666666672",
+                  "Unit": "Secrets"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManagerAPIRequest"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.00001",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.00001",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "2",
+                  "Unit": "API Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon CloudFront",
+                "Executions-CloudFrontFunctions"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "2",
+                  "Unit": "FunctionExecutions"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon CloudFront",
+                "US-DataTransfer-Out-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000285124",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon CloudFront",
+                "US-Requests-Tier2-HTTPS"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "2",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon DynamoDB",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000098533",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon DynamoDB",
+                "USE1-TimedPITRStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000010219",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000010219",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000051199",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon EC2 Container Registry (ECR)",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0083855256",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0083855256",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.083855244",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Queue Service",
+                "Requests-RBP"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "41329",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Global-Bucket-Hrs-FreeTier"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0236111113",
+                  "Unit": "Bucket-Mo"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Monitoring-Automation-INT"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000004167",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000004167",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.1666666667",
+                  "Unit": "Objects"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier1"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.00006",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.00006",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "12",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier2"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000008",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000008",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "2",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TagStorage-TagHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.000000715",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.000000715",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "1.1",
+                  "Unit": "Tag-Mo"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0003798276",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0003798276",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0165142479",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TimedStorage-INT-FA-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0003255709",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0003255709",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0141552555",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "USE1-CloudFront-Out-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000184551",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Vectors-TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000005776",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000005776",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.000009627",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AmazonCloudWatch",
+                "CW:AlarmMonitorUsage"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.1333333344",
+                  "Unit": "Alarms"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AmazonCloudWatch",
+                "DashboardsUsageHour-Basic"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.166666668",
+                  "Unit": "Dashboards"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AmazonCloudWatch",
+                "USE1-TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0003421616",
+                  "Unit": "GB-Month"
+                }
+              }
+            }
+          ],
+          "Estimated": true
+        },
+        {
+          "TimePeriod": {
+            "Start": "2026-09-14",
+            "End": "2026-09-15"
+          },
+          "Total": {},
+          "Groups": [
+            {
+              "Keys": [
+                "AWS Glue",
+                "USE1-Catalog-Request"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "2",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AWS Key Management Service",
+                "us-east-1-KMS-Requests"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "1",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManager-Secrets"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0266666688",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0266666688",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0666666672",
+                  "Unit": "Secrets"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon CloudFront",
+                "Executions-CloudFrontFunctions"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "1",
+                  "Unit": "FunctionExecutions"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon CloudFront",
+                "US-DataTransfer-Out-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000142539",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon CloudFront",
+                "US-Requests-Tier2-HTTPS"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "1",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon DynamoDB",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000098758",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon DynamoDB",
+                "USE1-TimedPITRStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.00000101",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.00000101",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000050577",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon EC2 Container Registry (ECR)",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0083855256",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0083855256",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.083855244",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "DataTransfer-Regional-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000085981",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "EBS:VolumeUsage.gp3"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0382222227",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0382222227",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.4777777773",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "NatGateway-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000000017",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000000017",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000000373",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "NatGateway-Hours"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.225",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.225",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "5",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-APS1-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000004954",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-EUC1-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000000484",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-USE2-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000012629",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-USW2-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000001714",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Elastic Compute Cloud - Compute",
+                "BoxUsage:t2.micro"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0126601124",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0126601124",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "1.091389",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Elastic Compute Cloud - Compute",
+                "DataTransfer-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0002054221",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Elastic Compute Cloud - Compute",
+                "DataTransfer-Out-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000038102",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Queue Service",
+                "Requests-RBP"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "41301",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Global-Bucket-Hrs-FreeTier"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0236111113",
+                  "Unit": "Bucket-Mo"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Monitoring-Automation-INT"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000004167",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000004167",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.1666666667",
+                  "Unit": "Objects"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier1"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.00005",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.00005",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "10",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier2"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000008",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000008",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "2",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TagStorage-TagHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.000000715",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.000000715",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "1.1",
+                  "Unit": "Tag-Mo"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0003798278",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0003798278",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0165142563",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "TimedStorage-INT-FA-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0003255709",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0003255709",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0141552555",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "USE1-CloudFront-Out-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000184551",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Vectors-TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000005776",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000005776",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.000009627",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Virtual Private Cloud",
+                "USE1-PublicIPv4:IdleAddress"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.00012639",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.00012639",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.025278",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Virtual Private Cloud",
+                "USE1-PublicIPv4:InUseAddress"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.028320835",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.028320835",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "5.664167",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AmazonCloudWatch",
+                "CW:AlarmMonitorUsage"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.1333333344",
+                  "Unit": "Alarms"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AmazonCloudWatch",
+                "DashboardsUsageHour-Basic"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.166666668",
+                  "Unit": "Dashboards"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AmazonCloudWatch",
+                "USE1-TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0003421616",
+                  "Unit": "GB-Month"
+                }
+              }
+            }
+          ],
+          "Estimated": true
+        },
+        {
+          "TimePeriod": {
+            "Start": "2026-09-15",
+            "End": "2026-09-16"
+          },
+          "Total": {},
+          "Groups": [
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManager-Secrets"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.016666668",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.016666668",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.041666667",
+                  "Unit": "Secrets"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AWS Secrets Manager",
+                "USE1-AWSSecretsManagerAPIRequest"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.000015",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.000015",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "3",
+                  "Unit": "API Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon CloudFront",
+                "Executions-CloudFrontFunctions"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "1",
+                  "Unit": "FunctionExecutions"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon CloudFront",
+                "US-DataTransfer-Out-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.000014253",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon CloudFront",
+                "US-Requests-Tier2-HTTPS"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "1",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon DynamoDB",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000056274",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon DynamoDB",
+                "USE1-TimedPITRStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000006734",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000006734",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000033699",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon EC2 Container Registry (ECR)",
+                "TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0055903504",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0055903504",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.055903496",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "DataTransfer-Regional-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000105837",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "EBS:VolumeUsage.gp3"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0186666669",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0186666669",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.2333333331",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "NatGateway-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000000389",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000000389",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000008571",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "NatGateway-Hours"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.675",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.675",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "15",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-APS1-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.000001665",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-APS2-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.000000041",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-CAN1-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.000000041",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-EUW2-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000000484",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-USE2-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000044555",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "EC2 - Other",
+                "USE1-USW2-AWS-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000004807",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Elastic Compute Cloud - Compute",
+                "DataTransfer-In-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0007281997",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Elastic Compute Cloud - Compute",
+                "DataTransfer-Out-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000008571",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Queue Service",
+                "Requests-RBP"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "27547",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier1"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.00003",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.00003",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "6",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Requests-Tier2"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000008",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000008",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "2",
+                  "Unit": "Requests"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "USE1-CloudFront-Out-Bytes"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000044946",
+                  "Unit": "GB"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Simple Storage Service",
+                "Vectors-TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.0000002888",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.0000002888",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0000048135",
+                  "Unit": "GB-Month"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "Amazon Virtual Private Cloud",
+                "USE1-PublicIPv4:InUseAddress"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0.075",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0.075",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "15",
+                  "Unit": "Hrs"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AmazonCloudWatch",
+                "CW:AlarmMonitorUsage"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0888888896",
+                  "Unit": "Alarms"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AmazonCloudWatch",
+                "DashboardsUsageHour-Basic"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.111111112",
+                  "Unit": "Dashboards"
+                }
+              }
+            },
+            {
+              "Keys": [
+                "AmazonCloudWatch",
+                "USE1-TimedStorage-ByteHrs"
+              ],
+              "Metrics": {
+                "AmortizedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UnblendedCost": {
+                  "Amount": "0",
+                  "Unit": "USD"
+                },
+                "UsageQuantity": {
+                  "Amount": "0.0003421616",
+                  "Unit": "GB-Month"
+                }
+              }
+            }
+          ],
+          "Estimated": true
+        }
+      ]
+    }
+  ]
+}

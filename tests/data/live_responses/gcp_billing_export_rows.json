@@ -1,0 +1,56 @@
+{
+  "_note": "Rows the aggregated BigQuery billing-export query returns, with the underscore aliases the query has to use. BigQuery hands back DATE/TIMESTAMP objects; ISO strings here parse the same way. Billing account is the fixture one; re-record with `make live-cloud` and scrub before committing.",
+  "rows": [
+    {
+      "billing_account_id": "01ABCD-2345EF-6789GH",
+      "usage_start_time": "2026-09-01",
+      "usage_end_time": "2026-09-01T23:59:59Z",
+      "service_description": "Compute Engine",
+      "sku_id": "2E27-4F75-95CD",
+      "sku_description": "N2 Instance Core running in Americas",
+      "location_location": "us-central1",
+      "resource_name": "api-prod-1",
+      "resource_global_name": "//compute.googleapis.com/projects/cloudcause-demo/zones/us-central1-a/instances/api-prod-1",
+      "currency": "USD",
+      "usage_unit": "hour",
+      "usage_amount": 24.0,
+      "cost": 15.0,
+      "credits_amount": -1.5,
+      "labels": "[{\"key\": \"env\", \"value\": \"prod\"}, {\"key\": \"owner\", \"value\": \"platform\"}]"
+    },
+    {
+      "billing_account_id": "01ABCD-2345EF-6789GH",
+      "usage_start_time": "2026-09-01",
+      "usage_end_time": "2026-09-01T23:59:59Z",
+      "service_description": "Cloud Translation API",
+      "sku_id": "C1D2-E3F4-A5B6",
+      "sku_description": "Translation Basic characters",
+      "location_location": "global",
+      "resource_name": null,
+      "resource_global_name": "//serviceusage.googleapis.com/projects/cloudcause-demo/services/translate.googleapis.com",
+      "currency": "USD",
+      "usage_unit": "count",
+      "usage_amount": 8000000.0,
+      "cost": 161.6,
+      "credits_amount": 0.0,
+      "labels": "null"
+    },
+    {
+      "billing_account_id": "01ABCD-2345EF-6789GH",
+      "usage_start_time": "2026-09-02",
+      "usage_end_time": "2026-09-02T13:00:00Z",
+      "service_description": "Compute Engine",
+      "sku_id": "2E27-4F75-95CD",
+      "sku_description": "N2 Instance Core running in Americas",
+      "location_location": "us-central1",
+      "resource_name": "api-prod-1",
+      "resource_global_name": "//compute.googleapis.com/projects/cloudcause-demo/zones/us-central1-a/instances/api-prod-1",
+      "currency": "USD",
+      "usage_unit": "hour",
+      "usage_amount": 13.0,
+      "cost": 8.125,
+      "credits_amount": 0.0,
+      "labels": "[{\"key\": \"env\", \"value\": \"prod\"}]"
+    }
+  ]
+}

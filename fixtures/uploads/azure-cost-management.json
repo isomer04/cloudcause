@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "columns": [
+      {"name":"UsageDate","type":"Number"},
+      {"name":"Cost","type":"Number"},
+      {"name":"AmortizedCost","type":"Number"},
+      {"name":"UsageQuantity","type":"Number"},
+      {"name":"MeterCategory","type":"String"},
+      {"name":"Meter","type":"String"},
+      {"name":"ResourceId","type":"String"},
+      {"name":"ResourceLocation","type":"String"},
+      {"name":"SubscriptionId","type":"String"},
+      {"name":"UnitOfMeasure","type":"String"},
+      {"name":"Currency","type":"String"},
+      {"name":"ChargeType","type":"String"}
+    ],
+    "rows": [
+      [20260706,10,10,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260707,10,10,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260708,10,10,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260709,10,10,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260710,10,10,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260711,10,10,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260712,10,10,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260713,30,30,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260714,30,30,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260715,30,30,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260716,30,30,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260717,30,30,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260718,30,30,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"],
+      [20260719,30,30,24,"Virtual Machines","D2s v5","/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Compute/virtualMachines/example-vm","eastus","00000000-0000-0000-0000-000000000000","1 Hour","USD","Usage"]
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.pytest-tmp-*/
+.ruff_cache/
+dist/
+build/
+
+# Secrets and local config. The glob has to cover every variant, not just
+# .env.local: .gcloudignore includes this file, so these rules are also what
+# keeps a stray .env out of the Cloud Build source upload, and .dockerignore
+# repeats them for the build context the daemon sees afterwards.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+service-account*.json
+
+# Local artifacts
+reports/
+.evaluation_output/
+*.log
+
+# Local SQLite investigation history
+.cloudcause/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Node (web)
+node_modules/
+.superdesign/
+.next/
+.next-dev/
+.next-dev-*/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local assistant/editor tooling config. Not part of the application.
+.kiro/
+.playwright-mcp/
+.skill-build/
+
+# Personal working notes and deployment helpers: course walkthroughs adapted
+# from third-party material, and scripts carrying this operator's own project
+# id. Useful here, noise (or someone else's content) in a public repo. The
+# reusable half of these lives in docs/deployment-runbook.md instead.
+local/
+
+# Terraform. Provider binaries are ~119 MB, over GitHub's file limit; state and
+# tfvars hold any model key passed with -var. .terraform.lock.hcl stays tracked,
+# the same way uv.lock does.
+**/.terraform/*
+terraform.tfstate.d/
+*.tfstate
+*.tfstate.*
+.terraform.tfstate.lock.info
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+crash.log
+crash.*.log
+
+submission/

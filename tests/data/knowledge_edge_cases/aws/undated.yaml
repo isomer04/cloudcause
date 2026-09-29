@@ -1,0 +1,46 @@
+# Edge-case knowledge used only by tests.
+rules:
+  - id: test-aws-rule-without-effective-date
+    provider: aws
+    rule_type: cost_driver
+    title: Rule with no effective date
+    service: mystery-service
+    reviewed_at: 2026-07-01
+    summary: A rule that never declared when it took effect.
+    matches:
+      services: [mystery-service]
+      categories: [mystery_pattern]
+    source:
+      type: official_documentation
+      url: https://example.invalid/docs/mystery
+    confidence: provisional
+
+  - id: test-aws-future-rule
+    provider: aws
+    rule_type: cost_driver
+    title: Rule that only takes effect next year
+    service: future-service
+    valid_from: 2027-01-01
+    reviewed_at: 2026-07-01
+    summary: Must never be applied to earlier billing periods.
+    matches:
+      services: [future-service]
+      categories: [future_pattern]
+    source:
+      type: official_documentation
+      url: https://example.invalid/docs/future
+
+  - id: test-aws-stale-rule
+    provider: aws
+    rule_type: cost_driver
+    title: Rule whose review is long overdue
+    service: stale-service
+    valid_from: 2024-01-01
+    reviewed_at: 2024-02-01
+    summary: Used to prove stale knowledge raises a visible warning.
+    matches:
+      services: [stale-service]
+      categories: [stale_pattern]
+    source:
+      type: official_documentation
+      url: https://example.invalid/docs/stale

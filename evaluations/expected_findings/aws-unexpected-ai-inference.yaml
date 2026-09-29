@@ -1,0 +1,13 @@
+scenario_id: aws-unexpected-ai-inference
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: aws
+  category: ai_inference
+  resource_id: "arn:aws:bedrock:us-east-1:111122223333:application-inference-profile/summariser"
+  cost_increase: 208.0
+  cost_tolerance: 0.02
+  min_confidence: 0.5
+  min_evidence: 3
+  required_evidence_sources: [cost, usage, metric]
+  required_rule_ids: [aws-bedrock-inference-usage]

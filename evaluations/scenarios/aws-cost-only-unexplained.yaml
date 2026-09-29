@@ -1,0 +1,53 @@
+id: aws-cost-only-unexplained
+title: "AWS: a real spike with nothing but the bill to explain it"
+provider: aws
+category: unexplained_increase
+question: Why did our AWS spending increase last week?
+account_id: "111122223333"
+region: us-east-1
+periods:
+  baseline: {start: 2026-07-06, end: 2026-07-12}
+  current: {start: 2026-07-13, end: 2026-07-19}
+notes: >
+  The billing export is the only source available: no inventory, no metrics, no
+  audit trail, no provider recommendations. The queue spend genuinely moved and
+  CloudCause measures it exactly, but nothing on hand can name the mechanism, so
+  it must publish unexplained_increase at low confidence and say which sources
+  would settle it. This is the invariant "cost does not prove cause" made
+  visible; it is a scenario precisely so a reviewer can click it.
+baseline_services:
+  - service: Amazon Elastic Compute Cloud
+    sku: "BoxUsage:m6i.large"
+    resource_id: i-0a1b2c3d4e5f67890
+    resource_name: web-prod-1
+    unit: Hrs
+    tags: {env: prod, owner: platform}
+    daily_cost: 12.0
+    daily_quantity: 24
+  - service: Amazon Simple Storage Service
+    sku: "TimedStorage-ByteHrs"
+    resource_id: "arn:aws:s3:::cc-demo-prod-data-lake"
+    resource_name: cc-demo-prod-data-lake
+    unit: GB-Mo
+    tags: {env: prod, owner: data-platform}
+    daily_cost: 8.0
+    daily_quantity: 320
+spikes:
+  # Owner-tagged on purpose: the untagged_resources playbook must not match, so
+  # the only remaining verdict is that the mechanism is unknown.
+  - service: Amazon Simple Queue Service
+    sku: "Requests-Tier1"
+    resource_id: "arn:aws:sqs:us-east-1:111122223333:orders-intake"
+    resource_name: orders-intake
+    unit: Requests
+    tags: {env: prod, owner: orders-team}
+    charge_description: "$0.40 per million Amazon SQS requests"
+    daily_cost: 2.4
+    daily_quantity: 6000000
+    current_daily_cost: 14.4
+    current_daily_quantity: 36000000
+    starts_on: 2026-07-14
+resources: []
+metrics: []
+audit_events: []
+recommendations: []

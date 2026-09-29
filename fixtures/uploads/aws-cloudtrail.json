@@ -1,0 +1,1684 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0706",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0706",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-06T03:07:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000001"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000001",
+      "eventID": "example-ct-0001",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0707",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0707",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-07T03:14:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000002"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000002",
+      "eventID": "example-ct-0002",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0708",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0708",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-08T03:21:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000003"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000003",
+      "eventID": "example-ct-0003",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0709",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0709",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-09T03:28:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000004"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000004",
+      "eventID": "example-ct-0004",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0710",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0710",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-10T03:35:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000005"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000005",
+      "eventID": "example-ct-0005",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0711",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0711",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-11T03:42:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000006"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000006",
+      "eventID": "example-ct-0006",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0712",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0712",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-12T03:49:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000007"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000007",
+      "eventID": "example-ct-0007",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0713",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0713",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-13T03:56:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000008"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000008",
+      "eventID": "example-ct-0008",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0713-0",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0713-0",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-13T09:03:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000009"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000009",
+      "eventID": "example-ct-0009",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0713-1",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0713-1",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-13T14:10:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000010"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000010",
+      "eventID": "example-ct-0010",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0713-2",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0713-2",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-13T20:17:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000011"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000011",
+      "eventID": "example-ct-0011",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0714",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0714",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-14T03:24:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000012"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000012",
+      "eventID": "example-ct-0012",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0714-0",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0714-0",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-14T09:31:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000013"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000013",
+      "eventID": "example-ct-0013",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0714-1",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0714-1",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-14T14:38:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000014"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000014",
+      "eventID": "example-ct-0014",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0714-2",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0714-2",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-14T20:45:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000015"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000015",
+      "eventID": "example-ct-0015",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0715",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0715",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-15T03:52:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000016"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000016",
+      "eventID": "example-ct-0016",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0715-0",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0715-0",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-15T09:59:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000017"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000017",
+      "eventID": "example-ct-0017",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0715-1",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0715-1",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-15T14:06:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000018"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000018",
+      "eventID": "example-ct-0018",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0715-2",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0715-2",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-15T20:13:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000019"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000019",
+      "eventID": "example-ct-0019",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0716",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0716",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-16T03:20:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000020"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000020",
+      "eventID": "example-ct-0020",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0716-0",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0716-0",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-16T09:27:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000021"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000021",
+      "eventID": "example-ct-0021",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0716-1",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0716-1",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-16T14:34:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000022"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000022",
+      "eventID": "example-ct-0022",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0716-2",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0716-2",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-16T20:41:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000023"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000023",
+      "eventID": "example-ct-0023",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0717",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0717",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-17T03:48:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000024"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000024",
+      "eventID": "example-ct-0024",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0717-0",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0717-0",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-17T09:55:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000025"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000025",
+      "eventID": "example-ct-0025",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0717-1",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0717-1",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-17T14:02:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000026"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000026",
+      "eventID": "example-ct-0026",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0717-2",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0717-2",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-17T20:09:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000027"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000027",
+      "eventID": "example-ct-0027",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0718",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0718",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-18T03:16:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000028"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000028",
+      "eventID": "example-ct-0028",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0718-0",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0718-0",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-18T09:23:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000029"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000029",
+      "eventID": "example-ct-0029",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0718-1",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0718-1",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-18T14:30:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000030"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000030",
+      "eventID": "example-ct-0030",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0718-2",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0718-2",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-18T20:37:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000031"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000031",
+      "eventID": "example-ct-0031",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:etl-0719",
+        "arn": "arn:aws:sts::111122223333:assumed-role/batch-etl/etl-0719",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/batch-etl",
+            "accountId": "111122223333",
+            "userName": "batch-etl"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-19T03:44:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "StartInstances",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.12.40",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000032"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000032",
+      "eventID": "example-ct-0032",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0719-0",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0719-0",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-19T09:51:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000033"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000033",
+      "eventID": "example-ct-0033",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0719-1",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0719-1",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-19T14:58:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000034"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000034",
+      "eventID": "example-ct-0034",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    },
+    {
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:train-0719-2",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ml-training/train-0719-2",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROAEXAMPLEID",
+            "arn": "arn:aws:iam::111122223333:role/ml-training",
+            "accountId": "111122223333",
+            "userName": "ml-training"
+          },
+          "attributes": {
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2026-07-19T20:05:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "ModifyInstanceAttribute",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "10.0.31.7",
+      "userAgent": "aws-cli/2.17.0 command/ec2.run-instances",
+      "requestParameters": {
+        "instanceType": "m6i.large",
+        "availabilityZone": "us-east-1a"
+      },
+      "responseElements": {
+        "requestId": "r-000035"
+      },
+      "requestID": "b1f2c3d4-0000-0000-0000-000000000035",
+      "eventID": "example-ct-0035",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management",
+      "resources": [
+        {
+          "accountId": "111122223333",
+          "type": "AWS::EC2::Instance",
+          "ARN": "arn:aws:ec2:us-east-1:111122223333:instance/i-example0000000001"
+        }
+      ]
+    }
+  ]
+}

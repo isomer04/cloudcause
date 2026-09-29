@@ -1,0 +1,14 @@
+scenario_id: aws-missing-ownership-tags
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: aws
+  category: untagged_resources
+  resource_id: "arn:aws:es:us-east-1:111122223333:domain/search-sandbox"
+  cost_increase: 84.0
+  cost_tolerance: 0.02
+  min_confidence: 0.3
+  max_confidence: 0.7
+  min_evidence: 2
+  required_evidence_sources: [cost, usage]
+  required_rule_ids: [aws-tagging-coverage]

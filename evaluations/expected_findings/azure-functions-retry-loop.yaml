@@ -1,0 +1,13 @@
+scenario_id: azure-functions-retry-loop
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: azure
+  category: functions_retry_loop
+  resource_id: /subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Web/sites/orders-processor
+  cost_increase: 103.2
+  cost_tolerance: 0.02
+  min_confidence: 0.6
+  min_evidence: 4
+  required_evidence_sources: [cost, usage, metric, audit]
+  required_rule_ids: [azure-functions-consumption-executions]

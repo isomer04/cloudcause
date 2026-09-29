@@ -1,0 +1,27 @@
+# GCP network cost interpretation.
+rules:
+  - id: gcp-network-egress
+    provider: gcp
+    rule_type: cost_driver
+    title: Network egress and inter-region traffic
+    service: networking
+    valid_from: 2024-01-01
+    reviewed_at: 2026-07-27
+    summary: >
+      Internet egress and inter-region traffic bill per GB with tiered rates, and
+      Cloud NAT adds its own hourly and per-GB processing charge. Cross-region reads
+      from a relocated consumer are the usual trigger.
+    cost_drivers: [internet_egress_gb, inter_region_gb, cloud_nat_processing, premium_tier_rate]
+    investigation_checks:
+      - identify_source_and_destination_region
+      - compare_transfer_bytes
+      - check_replication_config
+      - check_network_service_tier
+    matches:
+      services: [Networking, Compute Engine Networking, Cloud NAT]
+      categories: [cross_region_transfer, network_egress]
+    source:
+      type: official_documentation
+      url: https://cloud.google.com/vpc/network-pricing
+      updated_at: 2026-04-09
+    confidence: supported

@@ -1,0 +1,13 @@
+scenario_id: aws-nat-gateway-misroute
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: aws
+  category: nat_gateway_misroute
+  resource_id: nat-0ab12cd34ef56789a
+  cost_increase: 126.0
+  cost_tolerance: 0.02
+  min_confidence: 0.6
+  min_evidence: 4
+  required_evidence_sources: [cost, usage, metric, audit, recommendation]
+  required_rule_ids: [aws-nat-gateway-data-processing]

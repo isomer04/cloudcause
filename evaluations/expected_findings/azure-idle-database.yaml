@@ -1,0 +1,13 @@
+scenario_id: azure-idle-database
+expect_findings: true
+expect_reconciled: true
+top_finding:
+  provider: azure
+  category: idle_database
+  resource_id: /subscriptions/8f3c2b71-9d4e-4a5f-8c21-7b6e5d4c3a2b/resourceGroups/rg-prod/providers/Microsoft.Sql/servers/cc-demo-sql/databases/legacy-reporting
+  cost_increase: 78.4
+  cost_tolerance: 0.02
+  min_confidence: 0.5
+  min_evidence: 4
+  required_evidence_sources: [cost, metric, audit, recommendation]
+  required_rule_ids: [azure-sql-idle-database]
